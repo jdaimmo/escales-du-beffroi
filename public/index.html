@@ -324,6 +324,132 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
   .pictos { gap: 24px; }
   .cal-wrap { padding: 14px 8px; }
 }
+
+/* ── PANNEAU DISPONIBILITÉS AU CLIC ── */
+.dispo-panel {
+  display: none;
+  max-width: 800px;
+  margin: 20px auto 0;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 24px 28px;
+  text-align: left;
+  animation: fadeIn 0.2s ease;
+}
+.dispo-panel.visible { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dispo-panel-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--or);
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dispo-panel-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: rgba(250,247,240,0.4);
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+}
+.dispo-panel-close:hover { color: var(--or); }
+
+.dispo-panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dispo-panel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 12px 16px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.dispo-panel-item:hover {
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.05);
+}
+.dispo-panel-item.indispo {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.dispo-item-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dispo-item-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dispo-item-info {}
+.dispo-item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #FAF7F0;
+  margin-bottom: 2px;
+}
+.dispo-item-detail {
+  font-size: 0.65rem;
+  color: rgba(250,247,240,0.38);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.dispo-item-btn {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--nuit);
+  background: var(--or);
+  padding: 7px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.dispo-item-btn:hover { background: var(--or-l); }
+
+.dispo-panel-none {
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(250,247,240,0.35);
+  padding: 16px 0;
+}
+
+.cal-cell.selected {
+  background: rgba(201,168,76,0.15) !important;
+  border-radius: 3px;
+  outline: 1px solid rgba(201,168,76,0.4);
+}
+
 </style>
 </head>
 <body>
@@ -508,6 +634,16 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
     </div>
     <div class="cal-grid" id="calGrid" role="grid" aria-label="Calendrier de disponibilités"></div>
   </div>
+
+  <!-- PANNEAU DISPONIBILITÉS -->
+  <div class="dispo-panel" id="dispoPanel">
+    <div class="dispo-panel-title">
+      <span id="dispoPanelTitle">Disponibilités</span>
+      <button class="dispo-panel-close" id="dispoPanelClose" aria-label="Fermer">✕</button>
+    </div>
+    <div class="dispo-panel-list" id="dispoPanelList"></div>
+  </div>
+
   <a href="#logements" class="btn btn-w">Voir tous les logements</a>
 </section>
 
@@ -617,30 +753,32 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
 
 <script>
 const LOGEMENTS = [
-  { id:'cles',     nom:"Les Clés d'Augustine",   color:'#4A7C59' },
-  { id:'refuge',   nom:'Le Refuge des Places',    color:'#2E5A8E' },
-  { id:'escapade', nom:"L'Escapade Augustine",    color:'#5B7FA6' },
-  { id:'secret',   nom:"Le Secret d'Augustine",   color:'#8B6BA8' },
-  { id:'studio',   nom:'Le Studio des Arcades',   color:'#B5541E' },
-  { id:'patio',    nom:'Le Patio Augustine',      color:'#C9A84C' },
+  { id:'cles',     nom:"Les Clés d'Augustine",   color:'#4A7C59', surface:'42 m²', tag:'🗝️ Terrasse',  url:'https://www.airbnb.fr/rooms/1650825603422183509' },
+  { id:'refuge',   nom:'Le Refuge des Places',    color:'#2E5A8E', surface:'24 m²', tag:'🏙️ Design',    url:'https://www.airbnb.fr/rooms/1650849140461779706' },
+  { id:'escapade', nom:"L'Escapade Augustine",    color:'#5B7FA6', surface:'40 m²', tag:'💼 Bureau',    url:'https://www.airbnb.fr/rooms/1651264572441805303' },
+  { id:'secret',   nom:"Le Secret d'Augustine",   color:'#8B6BA8', surface:'26 m²', tag:'🌿 Bohème',    url:'https://www.airbnb.fr/rooms/1655069078535717997' },
+  { id:'studio',   nom:'Le Studio des Arcades',   color:'#B5541E', surface:'23 m²', tag:'🏛️ Patrimoine',url:'https://www.airbnb.fr/rooms/1650901324092467298' },
+  { id:'patio',    nom:'Le Patio Augustine',      color:'#C9A84C', surface:'82 m²', tag:'☀️ Duo 6 pers.',url:'https://www.airbnb.fr/rooms/1700009592329866550' },
 ];
 
 let yr = new Date().getFullYear(), mo = new Date().getMonth();
 let db = {};
+let selectedCell = null;
 
 function dk(y,m,d){ return `${y}${String(m+1).padStart(2,'0')}${String(d).padStart(2,'0')}`; }
 function occ(evs,k){ return evs.some(e=>e.start&&e.end&&k>=e.start&&k<e.end); }
 
 async function load(){
   try{
-    const r=await fetch('/.netlify/functions/ical?id=all'); const all=await r.json();
+    const r=await fetch('/.netlify/functions/ical?id=all');
+    const all=await r.json();
     const t=new Date();
     for(let off=0;off<6;off++){
       const d=new Date(t.getFullYear(),t.getMonth()+off,1);
       const y=d.getFullYear(),m=d.getMonth(),days=new Date(y,m+1,0).getDate();
       for(let day=1;day<=days;day++){
         const k=dk(y,m,day); db[k]={};
-        LOGEMENTS.forEach(l=>{db[k][l.id]=all[l.id]?!occ(all[l.id],k):true;});
+        LOGEMENTS.forEach(l=>{ db[k][l.id]=all[l.id]?!occ(all[l.id],k):true; });
       }
     }
     const tk=dk(t.getFullYear(),t.getMonth(),t.getDate());
@@ -655,6 +793,52 @@ async function load(){
 }
 
 const MN=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+function showPanel(dateKey, dateLabel) {
+  const panel   = document.getElementById('dispoPanel');
+  const title   = document.getElementById('dispoPanelTitle');
+  const list    = document.getElementById('dispoPanelList');
+  if (!panel || !title || !list) return;
+
+  const dayData = db[dateKey];
+  title.textContent = `Disponibilités — ${dateLabel}`;
+  list.innerHTML = '';
+
+  const libres  = LOGEMENTS.filter(l => dayData ? dayData[l.id] : true);
+  const occupes = LOGEMENTS.filter(l => dayData ? !dayData[l.id] : false);
+
+  if (libres.length === 0) {
+    list.innerHTML = '<div class="dispo-panel-none">Aucun logement disponible ce jour.</div>';
+  } else {
+    // Logements disponibles en premier
+    [...libres, ...occupes].forEach(l => {
+      const libre = libres.includes(l);
+      const item = document.createElement('div');
+      item.className = 'dispo-panel-item' + (libre ? '' : ' indispo');
+      item.innerHTML = `
+        <div class="dispo-item-left">
+          <div class="dispo-item-dot" style="background:${l.color}"></div>
+          <div class="dispo-item-info">
+            <div class="dispo-item-name">${l.nom}</div>
+            <div class="dispo-item-detail">${l.tag} · ${l.surface} · ${libre ? '✓ Disponible' : '✗ Occupé'}</div>
+          </div>
+        </div>
+        ${libre ? `<a href="${l.url}" target="_blank" rel="noopener" class="dispo-item-btn">Réserver →</a>` : '<span style="font-size:0.65rem;color:rgba(250,247,240,0.25);letter-spacing:0.1em;text-transform:uppercase">Occupé</span>'}
+      `;
+      list.appendChild(item);
+    });
+  }
+
+  panel.classList.add('visible');
+  // Scroll doux vers le panneau
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Fermer le panneau
+document.getElementById('dispoPanelClose')?.addEventListener('click', () => {
+  document.getElementById('dispoPanel')?.classList.remove('visible');
+  if (selectedCell) { selectedCell.classList.remove('selected'); selectedCell = null; }
+});
 
 function render(){
   const g=document.getElementById('calGrid'), lb=document.getElementById('calLabel');
@@ -680,17 +864,36 @@ function render(){
       if(lib&&!past)noms.push(l.nom);
     });
     cell.appendChild(dots);
+
+    // Clic sur une date
     if(!past){
-      const tip=document.createElement('div');tip.className='cal-tip';
-      tip.innerHTML=noms.length===0?'Aucun logement disponible':`<strong>${noms.length} disponible${noms.length>1?'s':''}</strong><br>`+noms.join('<br>');
-      cell.appendChild(tip);
+      const JOURS=['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+      const dateLabel=`${JOURS[new Date(yr,mo,d).getDay()]} ${d} ${MN[mo]} ${yr}`;
+      cell.style.cursor='pointer';
+      cell.addEventListener('click', () => {
+        // Déselectionner la cellule précédente
+        if(selectedCell) selectedCell.classList.remove('selected');
+        cell.classList.add('selected');
+        selectedCell = cell;
+        showPanel(k, dateLabel);
+      });
     }
     g.appendChild(cell);
   }
 }
 
-document.getElementById('prevMonth')?.addEventListener('click',()=>{mo--;if(mo<0){mo=11;yr--;}render();});
-document.getElementById('nextMonth')?.addEventListener('click',()=>{mo++;if(mo>11){mo=0;yr++;}render();});
+document.getElementById('prevMonth')?.addEventListener('click',()=>{
+  mo--;if(mo<0){mo=11;yr--;}
+  document.getElementById('dispoPanel')?.classList.remove('visible');
+  if(selectedCell){selectedCell.classList.remove('selected');selectedCell=null;}
+  render();
+});
+document.getElementById('nextMonth')?.addEventListener('click',()=>{
+  mo++;if(mo>11){mo=0;yr++;}
+  document.getElementById('dispoPanel')?.classList.remove('visible');
+  if(selectedCell){selectedCell.classList.remove('selected');selectedCell=null;}
+  render();
+});
 load();
 </script>
 </body>

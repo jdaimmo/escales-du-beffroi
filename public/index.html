@@ -699,6 +699,43 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
   .card-thumb { height: 36px; }
 }
 
+
+/* ── BADGE PREMIUM ── */
+.badge-premium {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 7;
+  background: linear-gradient(135deg, #C9A84C, #DFC06A);
+  color: var(--nuit);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  box-shadow: 0 2px 12px rgba(201,168,76,0.35);
+}
+
+
+/* ── BOUTON RÉSERVER AGENDA ── */
+.ev-reserve {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--nuit);
+  background: var(--or);
+  padding: 6px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+.ev-reserve:hover { background: var(--or-l); }
+
 </style>
 </head>
 <body>
@@ -777,6 +814,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
       <article class="card card-lg card-with-photo">
         <div class="card-bg bg-cles" role="img" aria-label="Les Clés d'Augustine — appartement avec terrasse à Arras"></div>
         <div class="card-photo"><img src="photo-cles.jpg" alt="Les Clés d'Augustine — appartement Arras" loading="lazy"></div>
+        <div class="badge-premium">⭐ Premium</div>
         <div class="badge-dispo loading" id="badge-cles" aria-live="polite">...</div>
         <div class="card-m2" aria-hidden="true">42m²</div>
         <div class="card-body">
@@ -852,6 +890,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
       <article class="card card-lg card-with-photo">
         <div class="card-bg bg-patio" role="img" aria-label="Le Patio Augustine — duo d'appartements avec terrasse pour 6 personnes à Arras"></div>
         <div class="card-photo-duo"><img src="photo-cles.jpg" alt="Les Clés d'Augustine" loading="lazy"><img src="photo-escapade.jpg" alt="L'Escapade Augustine" loading="lazy"></div>
+        <div class="badge-premium">⭐ Premium</div>
         <div class="badge-dispo loading" id="badge-patio" aria-live="polite">...</div>
         <div class="badge-duo">☀️ Duo · 6 personnes</div>
         <div class="card-body">
@@ -933,17 +972,39 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
     <p class="s-label">Agenda estival</p>
     <h2 class="s-title">L'été à Arras — 2026</h2>
     <div class="events-list">
-      <div class="ev"><div class="ev-date">21 juin</div><div><div class="ev-name">Fête de la Musique</div><div class="ev-place">Dans toute la ville · De 11h à 23h · Gratuit</div></div><div class="ev-tag">🎵 Musique</div></div>
-      <div class="ev"><div class="ev-date">28 juin</div><div><div class="ev-name">Braderie des commerçants</div><div class="ev-place">Centre-ville · 9h–17h</div></div><div class="ev-tag">🛍️ Shopping</div></div>
-      <div class="ev"><div class="ev-date">3–5 juil.</div><div><div class="ev-name">Main Square Festival · 22ème édition</div><div class="ev-place">Citadelle d'Arras</div></div><div class="ev-tag">🎵 Festival</div></div>
-      <div class="ev"><div class="ev-date">8–11 juil.</div><div><div class="ev-name">L'Art Scène Festival</div><div class="ev-place">Chapiteau Bruit de Couloir · Gratuit</div></div><div class="ev-tag">🎪 Culture</div></div>
-      <div class="ev"><div class="ev-date">10–24 juil.</div><div><div class="ev-name">Pharos Urban Fest</div><div class="ev-place">Centre-ville · Expositions & street shows</div></div><div class="ev-tag">🎨 Urbain</div></div>
-      <div class="ev"><div class="ev-date">14 juil.</div><div><div class="ev-name">Fête Nationale — Feu d'artifice</div><div class="ev-place">Esplanade du Val de Scarpe · 23h</div></div><div class="ev-tag">🎆 Gratuit</div></div>
-      <div class="ev"><div class="ev-date">18–25 juil.</div><div><div class="ev-name">Cinéma plein air</div><div class="ev-place">Parcs d'Arras · 22h · Gratuit</div></div><div class="ev-tag">🎬 Cinéma</div></div>
-      <div class="ev"><div class="ev-date">15 août</div><div><div class="ev-name">Fête des Grandes Prairies</div><div class="ev-place">Grandes Prairies · L5 & Colonel Reyel · Feu 23h</div></div><div class="ev-tag">🎆 Gratuit</div></div>
-      <div class="ev"><div class="ev-date">20–23 août</div><div><div class="ev-name">Spectacle Vauban</div><div class="ev-place">Citadelle d'Arras · 8€ à 19€</div></div><div class="ev-tag">🏰 Spectacle</div></div>
-      <div class="ev"><div class="ev-date">29–30 août</div><div><div class="ev-name">Fête de l'Andouillette</div><div class="ev-place">Place des Héros</div></div><div class="ev-tag">🍽️ Gastro</div></div>
-      <div class="ev"><div class="ev-date">26 sept.</div><div><div class="ev-name">Championnat du monde de la Frite</div><div class="ev-place">Arras</div></div><div class="ev-tag">🍟 Incontournable</div></div>
+      <div class="ev"><div class="ev-date">21 juin</div><div><div class="ev-name">Fête de la Musique</div><div class="ev-place">Dans toute la ville · De 11h à 23h · Gratuit</div></div><div class="ev-tag">🎵 Musique</div>
+      <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">28 juin</div><div><div class="ev-name">Braderie des commerçants</div><div class="ev-place">Centre-ville · 9h–17h</div></div><div class="ev-tag">🛍️ Shopping</div>
+      <a href="https://www.airbnb.fr/rooms/1650849140461779706" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">3–5 juil.</div><div><div class="ev-name">Main Square Festival · 22ème édition</div><div class="ev-place">Citadelle d'Arras</div></div><div class="ev-tag">🎵 Festival</div>
+      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">8–11 juil.</div><div><div class="ev-name">L'Art Scène Festival</div><div class="ev-place">Chapiteau Bruit de Couloir · Gratuit</div></div><div class="ev-tag">🎪 Culture</div>
+      <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">10–24 juil.</div><div><div class="ev-name">Pharos Urban Fest</div><div class="ev-place">Centre-ville · Expositions & street shows</div></div><div class="ev-tag">🎨 Urbain</div>
+      <a href="https://www.airbnb.fr/rooms/1650901324092467298" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">14 juil.</div><div><div class="ev-name">Fête Nationale — Feu d'artifice</div><div class="ev-place">Esplanade du Val de Scarpe · 23h</div></div><div class="ev-tag">🎆 Gratuit</div>
+      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">18–25 juil.</div><div><div class="ev-name">Cinéma plein air</div><div class="ev-place">Parcs d'Arras · 22h · Gratuit</div></div><div class="ev-tag">🎬 Cinéma</div>
+      <a href="https://www.airbnb.fr/rooms/1655069078535717997" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">15 août</div><div><div class="ev-name">Fête des Grandes Prairies</div><div class="ev-place">Grandes Prairies · L5 & Colonel Reyel · Feu 23h</div></div><div class="ev-tag">🎆 Gratuit</div>
+      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">20–23 août</div><div><div class="ev-name">Spectacle Vauban</div><div class="ev-place">Citadelle d'Arras · 8€ à 19€</div></div><div class="ev-tag">🏰 Spectacle</div>
+      <a href="https://www.airbnb.fr/rooms/1651264572441805303" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">29–30 août</div><div><div class="ev-name">Fête de l'Andouillette</div><div class="ev-place">Place des Héros</div></div><div class="ev-tag">🍽️ Gastro</div>
+      <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
+      <div class="ev"><div class="ev-date">26 sept.</div><div><div class="ev-name">Championnat du monde de la Frite</div><div class="ev-place">Arras</div></div><div class="ev-tag">🍟 Incontournable</div>
+      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+    </div>
     </div>
   </div>
 </section>

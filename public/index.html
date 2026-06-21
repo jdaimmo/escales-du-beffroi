@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ══ SEO PRIMAIRE ══ -->
+<title>Les Escales du Beffroi — Appartements & Studios à Arras | Location Courte Durée</title>
+<meta name="description" content="6 appartements et studios de charme en hyper-centre d'Arras, à 3-5 min du Beffroi et des Places baroques UNESCO. Terrasse privative. Réservez sur Airbnb ou Booking.">
+<meta name="keywords" content="location appartement Arras, airbnb Arras, studio Arras centre, logement Arras beffroi, location courte durée Arras, appartement Arras place des héros, les escales du beffroi">
+<link rel="canonical" href="https://lesescalesdubeffroi.fr/">
+
+<!-- ══ OPEN GRAPH (Facebook / Instagram) ══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lesescalesdubeffroi.fr/">
+<meta property="og:title" content="Les Escales du Beffroi — Appartements de Charme à Arras">
+<meta property="og:description" content="6 logements en hyper-centre d'Arras. À 5 min du Beffroi et des Places baroques UNESCO. Terrasse privative, confort signature.">
+<meta property="og:image" content="https://lesescalesdubeffroi.fr/hero-places.png">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Les Escales du Beffroi">
+
+<!-- ══ TWITTER CARD ══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Les Escales du Beffroi — Appartements à Arras">
+<meta name="twitter:description" content="6 logements de charme en hyper-centre d'Arras. Beffroi, Places baroques, terrasse privative.">
+<meta name="twitter:image" content="https://lesescalesdubeffroi.fr/hero-places.png">
+
+<!-- ══ SCHEMA.ORG (données structurées Google) ══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LodgingBusiness",
+      "@id": "https://lesescalesdubeffroi.fr/#business",
+      "name": "Les Escales du Beffroi",
+      "description": "6 appartements et studios de charme en hyper-centre d'Arras, à 3 à 5 minutes à pied du Beffroi et des Places baroques classées UNESCO.",
+      "url": "https://lesescalesdubeffroi.fr",
+      "logo": "https://lesescalesdubeffroi.fr/logo.png",
+      "image": "https://lesescalesdubeffroi.fr/hero-places.png",
+      "telephone": "",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "63 rue des Augustines",
+        "addressLocality": "Arras",
+        "postalCode": "62000",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.2916,
+        "longitude": 2.7797
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "WiFi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Netflix", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Terrasse privative", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cuisine équipée", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Linge de maison fourni", "value": true }
+      ],
+      "numberOfRooms": 6,
+      "priceRange": "€€",
+      "sameAs": [
+        "https://www.instagram.com/les_escales_du_beffroi",
+        "https://www.facebook.com/les_escales_du_beffroi"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://lesescalesdubeffroi.fr/#website",
+      "url": "https://lesescalesdubeffroi.fr",
+      "name": "Les Escales du Beffroi",
+      "inLanguage": "fr-FR"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://lesescalesdubeffroi.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Nos logements", "item": "https://lesescalesdubeffroi.fr/#logements" },
+        { "@type": "ListItem", "position": 3, "name": "Disponibilités", "item": "https://lesescalesdubeffroi.fr/#disponibilites" }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- ══ FAVICON ══ -->
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
+
+<!-- ══ POLICES ══ -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --nuit:   #0D1B2A;
+  --nuit2:  #142236;
+  --or:     #C9A84C;
+  --or-l:   #DFC06A;
+  --creme:  #FAF7F0;
+  --blanc:  #FFFFFF;
+  --gris:   #F4F0E8;
+  --pierre: #7A6D5E;
+  --texte:  #1E1C18;
+  --bordor: rgba(201,168,76,0.18);
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--blanc); color: var(--texte); overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 48px;
+  background: rgba(13,27,42,0.97);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--bordor);
+}
+.nav-brand { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+.nav-logo-img { height: 40px; width: 40px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(201,168,76,0.3); }
+.nav-brand-text { font-family: 'Cormorant Garamond', serif; font-size: 0.98rem; font-weight: 400; color: var(--creme); letter-spacing: 0.06em; }
+.nav-brand-text span { color: var(--or); }
+nav ul { display: flex; gap: 28px; list-style: none; }
+nav ul a { font-size: 0.7rem; color: rgba(250,247,240,0.5); text-decoration: none; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.2s; }
+nav ul a:hover { color: var(--or); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 140px 24px 100px;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('hero-places.png') center 35% / cover no-repeat;
+  filter: brightness(0.35); transform: scale(1.03);
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(13,27,42,0.25) 0%, rgba(13,27,42,0.5) 55%, rgba(13,27,42,0.88) 100%);
+}
+.hero-content { position: relative; z-index: 2; }
+.hero-logo { width: 92px; height: 92px; border-radius: 50%; object-fit: cover; margin: 0 auto 24px; border: 1px solid rgba(201,168,76,0.4); box-shadow: 0 0 32px rgba(201,168,76,0.15); }
+.hero-eyebrow { font-size: 0.66rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--or); margin-bottom: 18px; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.0; color: #FAF7F0; margin-bottom: 6px; }
+.hero-title em { font-style: italic; color: var(--or); }
+.hero-rule { width: 52px; height: 1px; background: var(--or); margin: 18px auto 18px; }
+.hero-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(0.88rem, 1.8vw, 1.1rem); font-weight: 300; font-style: italic; color: rgba(250,247,240,0.6); margin-bottom: 12px; }
+.hero-tagline { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(250,247,240,0.32); margin-bottom: 44px; }
+.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* ── BOUTONS ── */
+.btn { display: inline-block; padding: 12px 32px; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; border: none; cursor: pointer; transition: all 0.22s; }
+.btn-or { background: var(--or); color: var(--nuit); }
+.btn-or:hover { background: var(--or-l); transform: translateY(-1px); }
+.btn-w { background: transparent; color: rgba(250,247,240,0.82); border: 1px solid rgba(250,247,240,0.22); }
+.btn-w:hover { border-color: var(--or); color: var(--or); }
+.btn-dark { background: var(--nuit); color: var(--creme); }
+.btn-dark:hover { background: var(--nuit2); transform: translateY(-1px); }
+
+.scroll-hint { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 2; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(250,247,240,0.25); display: flex; flex-direction: column; align-items: center; gap: 7px; }
+.scroll-hint::after { content: ''; width: 1px; height: 30px; background: linear-gradient(to bottom, rgba(201,168,76,0.45), transparent); }
+
+/* ── STATS — fond or ── */
+.stats { background: var(--or); padding: 15px 48px; display: flex; justify-content: center; gap: 52px; flex-wrap: wrap; }
+.stat { text-align: center; }
+.stat-n { font-family: 'Cormorant Garamond', serif; font-size: 1.75rem; font-weight: 600; color: var(--nuit); line-height: 1; }
+.stat-l { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,27,42,0.6); margin-top: 2px; }
+
+/* ── BANNIÈRE — fond blanc ── */
+.banniere { width: 100%; height: 260px; overflow: hidden; position: relative; }
+.banniere img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+.banniere-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(13,27,42,0.55) 0%, rgba(13,27,42,0.08) 35%, rgba(13,27,42,0.08) 65%, rgba(13,27,42,0.55) 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.ban-text { text-align: center; }
+.ban-text p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.2vw, 1.5rem); font-weight: 300; font-style: italic; color: #FAF7F0; letter-spacing: 0.04em; text-shadow: 0 1px 10px rgba(0,0,0,0.4); }
+.ban-rule { width: 44px; height: 1px; background: var(--or); margin: 11px auto; }
+.ban-sub { font-size: 0.62rem; font-family: 'DM Sans', sans-serif; font-style: normal; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,247,240,0.45); }
+
+/* ── INTRO — fond blanc ── */
+.intro-wrap { background: var(--blanc); padding: 72px 24px; }
+.intro { max-width: 640px; margin: 0 auto; text-align: center; }
+.intro p { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.05rem, 2vw, 1.32rem); font-weight: 300; line-height: 1.78; color: var(--texte); }
+.intro p em { color: var(--or); font-style: italic; }
+.pictos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; padding-top: 36px; margin-top: 36px; border-top: 1px solid var(--bordor); }
+.picto { text-align: center; }
+.picto-icon { font-size: 1.3rem; margin-bottom: 7px; }
+.picto-title { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--texte); margin-bottom: 2px; }
+.picto-sub { font-size: 0.63rem; color: var(--pierre); }
+
+/* ── SECTION LABELS ── */
+.s-label { font-size: 0.64rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--or); margin-bottom: 9px; text-align: center; }
+.s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.65rem, 3vw, 2.5rem); font-weight: 300; text-align: center; margin-bottom: 48px; line-height: 1.15; color: var(--texte); }
+
+/* ── LOGEMENTS — fond crème très clair ── */
+.logements-wrap { background: var(--gris); padding: 80px 24px; }
+.logements { max-width: 1280px; margin: 0 auto; }
+.grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3px; }
+.card-lg { grid-column: span 2; }
+.card-sm { grid-column: span 1; }
+.card { position: relative; overflow: hidden; min-height: 320px; display: flex; flex-direction: column; justify-content: flex-end; cursor: pointer; }
+.card-lg { min-height: 390px; }
+.card-bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.6s ease, filter 0.4s; filter: brightness(0.38); }
+.card:hover .card-bg { transform: scale(1.04); filter: brightness(0.28); }
+.card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,27,42,0.92) 0%, rgba(13,27,42,0.18) 55%, transparent 100%); pointer-events: none; }
+
+/* Fonds des cartes */
+.bg-cles     { background: linear-gradient(155deg,#2A4A38,var(--nuit)); }
+.bg-refuge   { background: linear-gradient(155deg,#1E3656,var(--nuit)); }
+.bg-escapade { background: linear-gradient(155deg,#2A3A56,var(--nuit)); }
+.bg-secret   { background: linear-gradient(155deg,#3A2850,var(--nuit)); }
+.bg-studio   { background: linear-gradient(155deg,#3A2818,var(--nuit)); }
+.bg-patio    { background: linear-gradient(155deg,#2A3A22,var(--nuit)); }
+
+.badge-dispo { position: absolute; top: 16px; left: 16px; z-index: 3; font-size: 0.57rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; padding: 4px 9px; color: #fff; }
+.badge-dispo.libre { background: #3D8B5E; }
+.badge-dispo.loading { background: rgba(255,255,255,0.07); color: rgba(255,255,255,0.35); }
+.badge-duo { position: absolute; top: 16px; right: 16px; z-index: 3; font-size: 0.57rem; font-weight: 500; letter-spacing: 0.11em; text-transform: uppercase; background: var(--or); color: var(--nuit); padding: 4px 9px; }
+.card-m2 { position: absolute; top: 16px; right: 16px; z-index: 2; font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 300; color: rgba(201,168,76,0.1); line-height: 1; }
+.card-body { position: relative; z-index: 3; padding: 24px 28px; }
+.card-tag { display: inline-block; font-size: 0.56rem; letter-spacing: 0.17em; text-transform: uppercase; color: var(--or); border: 1px solid rgba(201,168,76,0.28); padding: 3px 8px; margin-bottom: 10px; }
+.card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: #FAF7F0; line-height: 1.15; margin-bottom: 7px; }
+.card-desc { font-size: 0.72rem; color: rgba(250,247,240,0.46); line-height: 1.55; margin-bottom: 13px; max-width: 300px; }
+.card-feats { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.feat { font-size: 0.56rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,247,240,0.36); background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.11); padding: 3px 7px; }
+.card-link { display: inline-flex; align-items: center; gap: 7px; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--or); text-decoration: none; transition: gap 0.2s; }
+.card-link:hover { gap: 12px; }
+.card-link::after { content: '→'; }
+
+/* ── DISPO — fond nuit ── */
+.dispo-section { background: var(--nuit); padding: 80px 24px; text-align: center; }
+.dispo-section .s-title { color: #FAF7F0; }
+.dispo-sub { font-family: 'Cormorant Garamond', serif; font-size: 0.98rem; font-style: italic; color: rgba(250,247,240,0.37); margin-bottom: 40px; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-bottom: 28px; }
+.leg { display: flex; align-items: center; gap: 6px; font-size: 0.64rem; color: rgba(250,247,240,0.48); }
+.leg-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.cal-controls { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 24px; }
+.cal-controls button { background: none; border: 1px solid rgba(201,168,76,0.22); color: var(--or); width: 32px; height: 32px; font-size: 1rem; cursor: pointer; transition: background 0.2s; }
+.cal-controls button:hover { background: rgba(201,168,76,0.08); }
+.cal-month-label { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 300; color: #FAF7F0; min-width: 170px; text-align: center; }
+.cal-wrap { max-width: 800px; margin: 0 auto 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.13); padding: 24px; }
+.cal-days-hdr { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; margin-bottom: 3px; }
+.cal-dname { text-align: center; font-size: 0.58rem; letter-spacing: 0.13em; text-transform: uppercase; color: rgba(250,247,240,0.2); padding: 5px 0; }
+.cal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+.cal-cell { aspect-ratio: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: background 0.15s; position: relative; min-height: 46px; padding: 3px 2px; }
+.cal-cell:hover:not(.empty):not(.past) { background: rgba(201,168,76,0.07); border-radius: 3px; }
+.cal-cell.empty, .cal-cell.past { pointer-events: none; opacity: 0.16; }
+.cal-num { font-size: 0.78rem; color: #FAF7F0; margin-bottom: 3px; line-height: 1; }
+.dispo-dots { display: flex; gap: 2px; justify-content: center; flex-wrap: wrap; }
+.dot { width: 5px; height: 5px; border-radius: 50%; }
+.cal-cell:hover .cal-tip { display: block; }
+.cal-tip { display: none; position: absolute; bottom: calc(100% + 5px); left: 50%; transform: translateX(-50%); background: var(--nuit2); border: 1px solid rgba(201,168,76,0.22); padding: 7px 11px; font-size: 0.64rem; color: rgba(250,247,240,0.8); white-space: nowrap; z-index: 10; pointer-events: none; line-height: 1.65; }
+
+/* ── ARRAS — fond blanc ── */
+.arras-wrap { background: var(--blanc); padding: 80px 24px; border-top: 1px solid var(--bordor); }
+.arras-inner { max-width: 1160px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.arras-text p { font-size: 0.86rem; line-height: 1.9; color: var(--pierre); margin-bottom: 15px; }
+.arras-text strong { color: var(--texte); font-weight: 500; }
+.highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+.hl { background: var(--gris); padding: 18px; border-left: 2px solid var(--or); }
+.hl-icon { font-size: 1.15rem; margin-bottom: 6px; }
+.hl-title { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-weight: 600; margin-bottom: 3px; color: var(--texte); }
+.hl-desc { font-size: 0.67rem; color: var(--pierre); line-height: 1.5; }
+
+/* ── AGENDA — fond crème ── */
+.agenda-wrap { background: var(--gris); padding: 80px 24px; border-top: 1px solid var(--bordor); }
+.agenda-inner { max-width: 900px; margin: 0 auto; }
+.events-list { border-top: 1px solid rgba(122,109,94,0.14); margin-top: 36px; }
+.ev { display: grid; grid-template-columns: 88px 1fr auto; align-items: center; gap: 22px; padding: 18px 0; border-bottom: 1px solid rgba(122,109,94,0.14); transition: padding 0.15s; }
+.ev:hover { padding-left: 8px; background: rgba(201,168,76,0.03); }
+.ev-date { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; color: var(--or); line-height: 1.4; }
+.ev-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; margin-bottom: 2px; color: var(--texte); }
+.ev-place { font-size: 0.66rem; color: var(--pierre); }
+.ev-tag { font-size: 0.56rem; letter-spacing: 0.13em; text-transform: uppercase; color: var(--or); border: 1px solid rgba(201,168,76,0.28); padding: 4px 8px; white-space: nowrap; }
+
+/* ── SEO BLOCK — fond blanc ── */
+.seo-block { background: var(--blanc); padding: 64px 24px; border-top: 1px solid var(--bordor); }
+.seo-inner { max-width: 860px; margin: 0 auto; }
+.seo-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; color: var(--texte); margin-bottom: 16px; }
+.seo-inner p { font-size: 0.82rem; line-height: 1.85; color: var(--pierre); margin-bottom: 12px; }
+.seo-inner strong { color: var(--texte); font-weight: 500; }
+.seo-inner a { color: var(--or); text-decoration: none; }
+.seo-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+.seo-tag { font-size: 0.64rem; letter-spacing: 0.1em; background: var(--gris); color: var(--pierre); padding: 5px 12px; border-radius: 2px; }
+
+/* ── FOOTER — fond nuit ── */
+footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 40px; border-top: 2px solid var(--or); }
+.f-brand-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.f-logo { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(201,168,76,0.28); }
+.f-brand-name { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; color: #FAF7F0; letter-spacing: 0.06em; }
+.f-brand-name span { color: var(--or); }
+.f-brand p { font-size: 0.72rem; color: rgba(250,247,240,0.26); line-height: 1.75; max-width: 210px; }
+.f-col h4 { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--or); margin-bottom: 14px; }
+.f-col ul { list-style: none; }
+.f-col li { margin-bottom: 7px; }
+.f-col a { font-size: 0.73rem; color: rgba(250,247,240,0.33); text-decoration: none; transition: color 0.2s; }
+.f-col a:hover { color: #FAF7F0; }
+.f-bottom { background: rgba(0,0,0,0.22); border-top: 1px solid rgba(255,255,255,0.04); padding: 14px 48px; display: flex; justify-content: space-between; align-items: center; }
+.f-bottom p { font-size: 0.6rem; color: rgba(250,247,240,0.16); }
+.f-socials { display: flex; gap: 12px; }
+.f-socials a { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(250,247,240,0.25); text-decoration: none; transition: color 0.2s; }
+.f-socials a:hover { color: var(--or); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 12px 16px; }
+  nav ul { display: none; }
+  .stats { gap: 18px; padding: 12px 16px; }
+  .banniere { height: 160px; }
+  .grid { grid-template-columns: 1fr; }
+  .card-lg,.card-sm { grid-column: span 1; }
+  .arras-inner { grid-template-columns: 1fr; gap: 32px; }
+  .highlights { grid-template-columns: 1fr 1fr; }
+  .ev { grid-template-columns: 70px 1fr; }
+  .ev-tag { display: none; }
+  footer { grid-template-columns: 1fr; gap: 24px; padding: 36px 16px 22px; }
+  .f-bottom { flex-direction: column; gap: 7px; padding: 12px 16px; text-align: center; }
+  .pictos { gap: 24px; }
+  .cal-wrap { padding: 14px 8px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="logo.png" alt="Les Escales du Beffroi" class="nav-logo-img">
+    <span class="nav-brand-text">Les Escales <span>du Beffroi</span></span>
+  </a>
+  <ul>
+    <li><a href="#logements">Nos escales</a></li>
+    <li><a href="#disponibilites">Disponibilités</a></li>
+    <li><a href="#arras">Arras</a></li>
+    <li><a href="#agenda">Agenda</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" aria-label="Les Escales du Beffroi — Appartements à Arras">
+  <div class="hero-bg" role="img" aria-label="Vue des Places baroques d'Arras en été"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img src="logo.png" alt="Logo Les Escales du Beffroi" class="hero-logo">
+    <p class="hero-eyebrow">Arras · Hauts-de-France</p>
+    <h1 class="hero-title">Les Escales<br><em>du Beffroi</em></h1>
+    <div class="hero-rule"></div>
+    <p class="hero-sub">Appartements & Studios de Charme au Cœur d'Arras</p>
+    <p class="hero-tagline">Hyper-centre · 3 à 5 min du Beffroi · Terrasse Privative</p>
+    <div class="hero-cta">
+      <a href="#disponibilites" class="btn btn-or">Voir les disponibilités</a>
+      <a href="#logements" class="btn btn-w">Découvrir nos escales</a>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true">Découvrir</div>
+</section>
+
+<!-- STATS -->
+<div class="stats" aria-label="Chiffres clés">
+  <div class="stat"><div class="stat-n">6</div><div class="stat-l">Logements</div></div>
+  <div class="stat"><div class="stat-n">3–5 min</div><div class="stat-l">Du Beffroi</div></div>
+  <div class="stat"><div class="stat-n">2 à 6</div><div class="stat-l">Voyageurs</div></div>
+  <div class="stat"><div class="stat-n">+300</div><div class="stat-l">Événements cet été</div></div>
+</div>
+
+<!-- BANNIÈRE -->
+<div class="banniere" role="img" aria-label="Arras - Beffroi, Places baroques, Citadelle Vauban">
+  <img src="banniere.jpeg" alt="Triptyque Arras : Beffroi illuminé, Places baroques, Citadelle Vauban" loading="lazy">
+  <div class="banniere-overlay">
+    <div class="ban-text">
+      <p>Beffroi illuminé · Places baroques · Citadelle Vauban</p>
+      <div class="ban-rule"></div>
+      <p class="ban-sub">Tout Arras à portée de main</p>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-wrap">
+  <div class="intro">
+    <p>Au cœur d'Arras, à quelques pas des Places baroques et du Beffroi, six escales vous accueillent — chacune avec son caractère, toutes avec la même <em>promesse d'un séjour sans compromis.</em></p>
+    <div class="pictos">
+      <div class="picto"><div class="picto-icon">📍</div><div class="picto-title">Hyper-centre</div><div class="picto-sub">3 à 5 min du Beffroi</div></div>
+      <div class="picto"><div class="picto-icon">🛏️</div><div class="picto-title">Confort Signature</div><div class="picto-sub">Matelas 30 cm</div></div>
+      <div class="picto"><div class="picto-icon">☀️</div><div class="picto-title">Terrasse Privative</div><div class="picto-sub">Au calme</div></div>
+      <div class="picto"><div class="picto-icon">📺</div><div class="picto-title">Netflix & WiFi</div><div class="picto-sub">Inclus</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- LOGEMENTS -->
+<section class="logements-wrap" id="logements">
+  <div class="logements">
+    <p class="s-label">Nos logements</p>
+    <h2 class="s-title">Choisissez votre escale</h2>
+    <div class="grid">
+
+      <article class="card card-lg">
+        <div class="card-bg bg-cles" role="img" aria-label="Les Clés d'Augustine — appartement avec terrasse à Arras"></div>
+        <div class="badge-dispo loading" id="badge-cles" aria-live="polite">...</div>
+        <div class="card-m2" aria-hidden="true">42m²</div>
+        <div class="card-body">
+          <div class="card-tag">🗝️ Terrasse privée</div>
+          <h3 class="card-name">Les Clés<br>d'Augustine</h3>
+          <p class="card-desc">Appartement lumineux de 42 m² avec accès direct à une terrasse privative. Parking en face. L'escale idéale pour les séjours détente.</p>
+          <div class="card-feats"><span class="feat">Terrasse</span><span class="feat">42 m²</span><span class="feat">Netflix</span><span class="feat">Parking face</span></div>
+          <a href="https://www.airbnb.fr" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        </div>
+      </article>
+
+      <article class="card card-sm">
+        <div class="card-bg bg-refuge" role="img" aria-label="Le Refuge des Places — studio design à Arras"></div>
+        <div class="badge-dispo loading" id="badge-refuge" aria-live="polite">...</div>
+        <div class="card-m2" aria-hidden="true">24m²</div>
+        <div class="card-body">
+          <div class="card-tag">🏙️ Design épuré</div>
+          <h3 class="card-name">Le Refuge<br>des Places</h3>
+          <p class="card-desc">Studio moderne et fonctionnel. Machine à laver incluse pour les longs séjours.</p>
+          <div class="card-feats"><span class="feat">Machine à laver</span><span class="feat">24 m²</span><span class="feat">WiFi</span></div>
+          <a href="https://www.airbnb.fr" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        </div>
+      </article>
+
+      <article class="card card-sm">
+        <div class="card-bg bg-escapade" role="img" aria-label="L'Escapade Augustine — appartement avec bureau à Arras"></div>
+        <div class="badge-dispo loading" id="badge-escapade" aria-live="polite">...</div>
+        <div class="card-m2" aria-hidden="true">40m²</div>
+        <div class="card-body">
+          <div class="card-tag">💼 Bureau dédié</div>
+          <h3 class="card-name">L'Escapade<br>Augustine</h3>
+          <p class="card-desc">Bureau dédié + baignoire. L'équilibre parfait entre productivité et bien-être.</p>
+          <div class="card-feats"><span class="feat">Bureau</span><span class="feat">Baignoire</span><span class="feat">40 m²</span></div>
+          <a href="https://www.airbnb.fr" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        </div>
+      </article>
+
+      <article class="card card-sm">
+        <div class="card-bg bg-secret" role="img" aria-label="Le Secret d'Augustine — studio bohémien à Arras"></div>
+        <div class="badge-dispo loading" id="badge-secret" aria-live="polite">...</div>
+        <div class="card-m2" aria-hidden="true">26m²</div>
+        <div class="card-body">
+          <div class="card-tag">🌿 Esprit bohème</div>
+          <h3 class="card-name">Le Secret<br>d'Augustine</h3>
+          <p class="card-desc">Studio poétique et apaisant. Un cocon bohémien pour une vraie parenthèse.</p>
+          <div class="card-feats"><span class="feat">Lit 160 cm</span><span class="feat">26 m²</span><span class="feat">Déco unique</span></div>
+          <a href="https://www.airbnb.fr" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        </div>
+      </article>
+
+      <article class="card card-sm">
+        <div class="card-bg bg-studio" role="img" aria-label="Le Studio des Arcades — studio historique à Arras"></div>
+        <div class="badge-dispo loading" id="badge-studio" aria-live="polite">...</div>
+        <div class="card-m2" aria-hidden="true">23m²</div>
+        <div class="card-body">
+          <div class="card-tag">🏛️ Patrimoine</div>
+          <h3 class="card-name">Le Studio<br>des Arcades</h3>
+          <p class="card-desc">Calme et historique. Monuments, Places et Beffroi à quelques pas.</p>
+          <div class="card-feats"><span class="feat">23 m²</span><span class="feat">Netflix</span><span class="feat">WiFi</span></div>
+          <a href="https://www.airbnb.fr" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        </div>
+      </article>
+
+      <article class="card card-lg">
+        <div class="card-bg bg-patio" role="img" aria-label="Le Patio Augustine — duo d'appartements avec terrasse pour 6 personnes à Arras"></div>
+        <div class="badge-dispo loading" id="badge-patio" aria-live="polite">...</div>
+        <div class="badge-duo">☀️ Duo · 6 personnes</div>
+        <div class="card-body">
+          <div class="card-tag">☀️ Offre exclusive · Terrasse partagée</div>
+          <h3 class="card-name">Le Patio<br>Augustine</h3>
+          <p class="card-desc">La combinaison des Clés + Escapade Augustine. Deux appartements séparés réunis autour d'une terrasse privative. 3 lits, 2 cuisines, 82 m². L'escale idéale entre amis ou en famille.</p>
+          <div class="card-feats"><span class="feat">2 apparts</span><span class="feat">82 m²</span><span class="feat">3 lits</span><span class="feat">2 cuisines</span><span class="feat">Terrasse</span><span class="feat">6 pers.</span></div>
+          <a href="https://www.airbnb.fr" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- DISPONIBILITÉS -->
+<section class="dispo-section" id="disponibilites" aria-label="Calendrier des disponibilités">
+  <p class="s-label">Calendrier</p>
+  <h2 class="s-title">Disponibilités en temps réel</h2>
+  <p class="dispo-sub">Le logement souhaité n'est pas disponible ? Un autre vous attend.</p>
+  <div class="legend" role="list" aria-label="Légende des logements">
+    <div class="leg" role="listitem"><div class="leg-dot" style="background:#4A7C59"></div>Les Clés d'Augustine</div>
+    <div class="leg" role="listitem"><div class="leg-dot" style="background:#2E5A8E"></div>Le Refuge des Places</div>
+    <div class="leg" role="listitem"><div class="leg-dot" style="background:#5B7FA6"></div>L'Escapade Augustine</div>
+    <div class="leg" role="listitem"><div class="leg-dot" style="background:#8B6BA8"></div>Le Secret d'Augustine</div>
+    <div class="leg" role="listitem"><div class="leg-dot" style="background:#B5541E"></div>Le Studio des Arcades</div>
+    <div class="leg" role="listitem"><div class="leg-dot" style="background:#C9A84C"></div>Le Patio Augustine</div>
+  </div>
+  <div class="cal-controls">
+    <button id="prevMonth" aria-label="Mois précédent">‹</button>
+    <div class="cal-month-label" id="calLabel" aria-live="polite">...</div>
+    <button id="nextMonth" aria-label="Mois suivant">›</button>
+  </div>
+  <div class="cal-wrap">
+    <div class="cal-days-hdr" aria-hidden="true">
+      <div class="cal-dname">Lun</div><div class="cal-dname">Mar</div><div class="cal-dname">Mer</div>
+      <div class="cal-dname">Jeu</div><div class="cal-dname">Ven</div><div class="cal-dname">Sam</div><div class="cal-dname">Dim</div>
+    </div>
+    <div class="cal-grid" id="calGrid" role="grid" aria-label="Calendrier de disponibilités"></div>
+  </div>
+  <a href="#logements" class="btn btn-w">Voir tous les logements</a>
+</section>
+
+<!-- ARRAS -->
+<section class="arras-wrap" id="arras" aria-label="Découvrir Arras">
+  <div style="text-align:center;margin-bottom:44px">
+    <p class="s-label">La ville</p>
+    <h2 class="s-title" style="margin-bottom:0">Arras, une ville qui ne ressemble<br>à aucune autre</h2>
+  </div>
+  <div class="arras-inner">
+    <div class="arras-text">
+      <p>À <strong>2h de Paris</strong> et <strong>40 min de Lille</strong>, Arras déroule ses places baroques classées UNESCO, son Beffroi haut de 75 mètres, ses tunnels secrets à 20 mètres sous terre et ses terrasses animées jusqu'au bout de la nuit.</p>
+      <p>Nos six escales sont toutes situées à moins de 5 minutes à pied de la Grand'Place — sans voiture, sans chercher, sans perdre de temps.</p>
+      <a href="#agenda" class="btn btn-dark" style="margin-top:14px">Voir l'agenda de l'été</a>
+    </div>
+    <div class="highlights">
+      <div class="hl"><div class="hl-icon">🗼</div><div class="hl-title">Beffroi UNESCO</div><div class="hl-desc">Le plus haut de France. Vue imprenable à 75 m. 5 min à pied.</div></div>
+      <div class="hl"><div class="hl-icon">⚔️</div><div class="hl-title">Carrière Wellington</div><div class="hl-desc">20 m sous terre. Visite immersive de la Grande Guerre.</div></div>
+      <div class="hl"><div class="hl-icon">✨</div><div class="hl-title">Places baroques</div><div class="hl-desc">155 façades flamandes classées UNESCO.</div></div>
+      <div class="hl"><div class="hl-icon">🏰</div><div class="hl-title">Citadelle Vauban</div><div class="hl-desc">Classée UNESCO. Site du Main Square Festival.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENDA -->
+<section class="agenda-wrap" id="agenda" aria-label="Agenda estival d'Arras 2026">
+  <div class="agenda-inner">
+    <p class="s-label">Agenda estival</p>
+    <h2 class="s-title">L'été à Arras — 2026</h2>
+    <div class="events-list">
+      <div class="ev"><div class="ev-date">21 juin</div><div><div class="ev-name">Fête de la Musique</div><div class="ev-place">Dans toute la ville · De 11h à 23h · Gratuit</div></div><div class="ev-tag">🎵 Musique</div></div>
+      <div class="ev"><div class="ev-date">28 juin</div><div><div class="ev-name">Braderie des commerçants</div><div class="ev-place">Centre-ville · 9h–17h</div></div><div class="ev-tag">🛍️ Shopping</div></div>
+      <div class="ev"><div class="ev-date">3–5 juil.</div><div><div class="ev-name">Main Square Festival · 22ème édition</div><div class="ev-place">Citadelle d'Arras</div></div><div class="ev-tag">🎵 Festival</div></div>
+      <div class="ev"><div class="ev-date">8–11 juil.</div><div><div class="ev-name">L'Art Scène Festival</div><div class="ev-place">Chapiteau Bruit de Couloir · Gratuit</div></div><div class="ev-tag">🎪 Culture</div></div>
+      <div class="ev"><div class="ev-date">10–24 juil.</div><div><div class="ev-name">Pharos Urban Fest</div><div class="ev-place">Centre-ville · Expositions & street shows</div></div><div class="ev-tag">🎨 Urbain</div></div>
+      <div class="ev"><div class="ev-date">14 juil.</div><div><div class="ev-name">Fête Nationale — Feu d'artifice</div><div class="ev-place">Esplanade du Val de Scarpe · 23h</div></div><div class="ev-tag">🎆 Gratuit</div></div>
+      <div class="ev"><div class="ev-date">18–25 juil.</div><div><div class="ev-name">Cinéma plein air</div><div class="ev-place">Parcs d'Arras · 22h · Gratuit</div></div><div class="ev-tag">🎬 Cinéma</div></div>
+      <div class="ev"><div class="ev-date">15 août</div><div><div class="ev-name">Fête des Grandes Prairies</div><div class="ev-place">Grandes Prairies · L5 & Colonel Reyel · Feu 23h</div></div><div class="ev-tag">🎆 Gratuit</div></div>
+      <div class="ev"><div class="ev-date">20–23 août</div><div><div class="ev-name">Spectacle Vauban</div><div class="ev-place">Citadelle d'Arras · 8€ à 19€</div></div><div class="ev-tag">🏰 Spectacle</div></div>
+      <div class="ev"><div class="ev-date">29–30 août</div><div><div class="ev-name">Fête de l'Andouillette</div><div class="ev-place">Place des Héros</div></div><div class="ev-tag">🍽️ Gastro</div></div>
+      <div class="ev"><div class="ev-date">26 sept.</div><div><div class="ev-name">Championnat du monde de la Frite</div><div class="ev-place">Arras</div></div><div class="ev-tag">🍟 Incontournable</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOC SEO TEXTE -->
+<section class="seo-block" aria-label="Location appartement Arras">
+  <div class="seo-inner">
+    <h2>Location appartement Arras centre — Beffroi & Places baroques</h2>
+    <p>Les Escales du Beffroi proposent <strong>6 appartements et studios en location courte durée</strong> au cœur d'Arras (Pas-de-Calais, Hauts-de-France). Tous nos logements sont situés en <strong>hyper-centre d'Arras</strong>, à 3 à 5 minutes à pied du Beffroi classé UNESCO, de la Grand'Place et de la Place des Héros.</p>
+    <p>Que vous soyez en <strong>déplacement professionnel à Arras</strong>, en escapade touristique ou en séjour pour le <strong>Main Square Festival</strong>, nos logements s'adaptent à tous les profils : studios design, appartements avec terrasse privative, ou le Patio Augustine pour <strong>6 personnes avec terrasse partagée</strong>.</p>
+    <p>Disponibles sur <strong>Airbnb</strong> et <strong>Booking.com</strong>. Réservation directe via chaque fiche. <strong>Linge de maison fourni, WiFi haut débit, Netflix inclus.</strong></p>
+    <div class="seo-tags">
+      <span class="seo-tag">Location Arras</span>
+      <span class="seo-tag">Airbnb Arras</span>
+      <span class="seo-tag">Appartement Arras centre</span>
+      <span class="seo-tag">Studio Arras beffroi</span>
+      <span class="seo-tag">Location courte durée Arras</span>
+      <span class="seo-tag">Logement Arras Main Square</span>
+      <span class="seo-tag">Hébergement Arras Place des Héros</span>
+      <span class="seo-tag">Appartement Arras terrasse</span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-brand">
+    <div class="f-brand-row">
+      <img src="logo.png" alt="Logo Les Escales du Beffroi" class="f-logo">
+      <div class="f-brand-name">Les Escales <span>du Beffroi</span></div>
+    </div>
+    <p>Appartements & Studios de Charme au Cœur d'Arras · 6 logements · Hyper-centre · Hauts-de-France</p>
+  </div>
+  <div class="f-col">
+    <h4>Nos escales</h4>
+    <ul>
+      <li><a href="#logements">Les Clés d'Augustine</a></li>
+      <li><a href="#logements">Le Refuge des Places</a></li>
+      <li><a href="#logements">L'Escapade Augustine</a></li>
+      <li><a href="#logements">Le Secret d'Augustine</a></li>
+      <li><a href="#logements">Le Studio des Arcades</a></li>
+      <li><a href="#logements" style="color:var(--or)">☀️ Le Patio Augustine</a></li>
+    </ul>
+  </div>
+  <div class="f-col">
+    <h4>Informations</h4>
+    <ul>
+      <li><a href="#disponibilites">Disponibilités</a></li>
+      <li><a href="#arras">Arras & bons plans</a></li>
+      <li><a href="#agenda">Agenda estival 2026</a></li>
+    </ul>
+    <h4 style="margin-top:16px">Suivre</h4>
+    <div class="f-socials" style="margin-top:9px">
+      <a href="https://instagram.com/les_escales_du_beffroi" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://facebook.com/les_escales_du_beffroi" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+</footer>
+<div class="f-bottom">
+  <p>© 2026 Les Escales du Beffroi — Arras, Hauts-de-France · <a href="https://lesescalesdubeffroi.fr" style="color:inherit">lesescalesdubeffroi.fr</a></p>
+  <div class="f-socials">
+    <a href="https://instagram.com/les_escales_du_beffroi" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://facebook.com/les_escales_du_beffroi" target="_blank" rel="noopener">Facebook</a>
+  </div>
+</div>
+
+<script>
+const LOGEMENTS = [
+  { id:'cles',     nom:"Les Clés d'Augustine",   color:'#4A7C59' },
+  { id:'refuge',   nom:'Le Refuge des Places',    color:'#2E5A8E' },
+  { id:'escapade', nom:"L'Escapade Augustine",    color:'#5B7FA6' },
+  { id:'secret',   nom:"Le Secret d'Augustine",   color:'#8B6BA8' },
+  { id:'studio',   nom:'Le Studio des Arcades',   color:'#B5541E' },
+  { id:'patio',    nom:'Le Patio Augustine',      color:'#C9A84C' },
+];
+
+let yr = new Date().getFullYear(), mo = new Date().getMonth();
+let db = {};
+
+function dk(y,m,d){ return `${y}${String(m+1).padStart(2,'0')}${String(d).padStart(2,'0')}`; }
+function occ(evs,k){ return evs.some(e=>e.start&&e.end&&k>=e.start&&k<e.end); }
+
+async function load(){
+  try{
+    const r=await fetch('/api/ical?id=all'); const all=await r.json();
+    const t=new Date();
+    for(let off=0;off<6;off++){
+      const d=new Date(t.getFullYear(),t.getMonth()+off,1);
+      const y=d.getFullYear(),m=d.getMonth(),days=new Date(y,m+1,0).getDate();
+      for(let day=1;day<=days;day++){
+        const k=dk(y,m,day); db[k]={};
+        LOGEMENTS.forEach(l=>{db[k][l.id]=all[l.id]?!occ(all[l.id],k):true;});
+      }
+    }
+    const tk=dk(t.getFullYear(),t.getMonth(),t.getDate());
+    LOGEMENTS.forEach(l=>{
+      const el=document.getElementById('badge-'+l.id); if(!el)return;
+      const lib=all[l.id]?!occ(all[l.id],tk):true;
+      el.textContent=lib?'Disponible':'Occupé';
+      el.className='badge-dispo'+(lib?' libre':'');
+    });
+  }catch(e){ console.warn('Mode démo'); }
+  render();
+}
+
+const MN=['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+
+function render(){
+  const g=document.getElementById('calGrid'), lb=document.getElementById('calLabel');
+  if(!g||!lb)return;
+  lb.textContent=`${MN[mo]} ${yr}`;
+  const fd=new Date(yr,mo,1).getDay(), off=fd===0?6:fd-1;
+  const dim=new Date(yr,mo+1,0).getDate();
+  const td=new Date(); g.innerHTML='';
+  for(let i=0;i<off;i++){const e=document.createElement('div');e.className='cal-cell empty';g.appendChild(e);}
+  for(let d=1;d<=dim;d++){
+    const cell=document.createElement('div');
+    const k=dk(yr,mo,d);
+    const past=new Date(yr,mo,d)<new Date(td.getFullYear(),td.getMonth(),td.getDate());
+    cell.className='cal-cell'+(past?' past':'');
+    const num=document.createElement('div');num.className='cal-num';num.textContent=d;cell.appendChild(num);
+    const dots=document.createElement('div');dots.className='dispo-dots';
+    const day=db[k]; let noms=[];
+    LOGEMENTS.forEach(l=>{
+      const dot=document.createElement('div');dot.className='dot';
+      const lib=day?day[l.id]:true;
+      dot.style.background=lib?l.color:'rgba(255,255,255,0.08)';
+      dots.appendChild(dot);
+      if(lib&&!past)noms.push(l.nom);
+    });
+    cell.appendChild(dots);
+    if(!past){
+      const tip=document.createElement('div');tip.className='cal-tip';
+      tip.innerHTML=noms.length===0?'Aucun logement disponible':`<strong>${noms.length} disponible${noms.length>1?'s':''}</strong><br>`+noms.join('<br>');
+      cell.appendChild(tip);
+    }
+    g.appendChild(cell);
+  }
+}
+
+document.getElementById('prevMonth')?.addEventListener('click',()=>{mo--;if(mo<0){mo=11;yr--;}render();});
+document.getElementById('nextMonth')?.addEventListener('click',()=>{mo++;if(mo>11){mo=0;yr++;}render();});
+load();
+</script>
+</body>
+</html>

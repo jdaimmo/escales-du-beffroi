@@ -1,5 +1,4 @@
 const https = require('https');
-const http = require('http');
 
 const LOGEMENTS = {
   refuge:   'https://pms.rentalready.io/staffing/icalowner/a9ccc2f1-5152-44c6-9899-6d391a85f894/calendar.ics',
@@ -12,11 +11,11 @@ const LOGEMENTS = {
 
 function fetchUrl(url) {
   return new Promise((resolve, reject) => {
-    const client = url.startsWith('https') ? https : http;
-    client.get(url, (res) => {
+    https.get(url, (res) => {
       let data = '';
       res.on('data', chunk => data += chunk);
       res.on('end', () => resolve(data));
+      res.on('error', reject);
     }).on('error', reject);
   });
 }
@@ -25,7 +24,6 @@ function parseIcal(icsData) {
   const events = [];
   const lines = icsData.replace(/\r\n /g, '').split(/\r?\n/);
   let current = null;
-
   for (const line of lines) {
     if (line === 'BEGIN:VEVENT') {
       current = {};
@@ -34,9 +32,9 @@ function parseIcal(icsData) {
       current = null;
     } else if (current) {
       if (line.startsWith('DTSTART')) {
-        current.start = line.split(':')[1]?.substring(0, 8);
+        current.start = line.split(/[:;]/)[1]?.substring(0, 8);
       } else if (line.startsWith('DTEND')) {
-        current.end = line.split(':')[1]?.substring(0, 8);
+        current.end = line.split(/[:;]/)[1]?.substring(0, 8);
       } else if (line.startsWith('SUMMARY')) {
         current.summary = line.split(':').slice(1).join(':');
       }
@@ -46,23 +44,15 @@ function parseIcal(icsData) {
 }
 
 exports.handler = async (event) => {
-  const id = event.queryStringParameters?.id;
-
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
-    'Cache-Control': 'public, max-age=300', // Cache 5 min
+    'Cache-Control': 'public, max-age=300',
   };
 
-  if (!id || !LOGEMENTS[id]) {
-    return {
-      statusCode: 400,
-      headers,
-      body: JSON.stringify({ error: 'Logement inconnu' }),
-    };
-  }
+  const id = event.queryStringParameters?.id || '';
 
-  // Si id = 'all', retourner tous les logements
+  // Retourner tous les logements
   if (id === 'all') {
     try {
       const results = {};
@@ -71,22 +61,48 @@ exports.handler = async (event) => {
           try {
             const ics = await fetchUrl(url);
             results[key] = parseIcal(ics);
-          } catch {
+          } catch (e) {
+            console.error(`Erreur ${key}:`, e.message);
             results[key] = [];
           }
         })
       );
-      return { statusCode: 200, headers, body: JSON.stringify(results) };
+      return {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify(results),
+      };
     } catch (err) {
-      return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: err.message }),
+      };
     }
+  }
+
+  // Retourner un logement spécifique
+  if (!LOGEMENTS[id]) {
+    return {
+      statusCode: 400,
+      headers,
+      body: JSON.stringify({ error: `Logement inconnu: ${id}` }),
+    };
   }
 
   try {
     const ics = await fetchUrl(LOGEMENTS[id]);
     const events = parseIcal(ics);
-    return { statusCode: 200, headers, body: JSON.stringify(events) };
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify(events),
+    };
   } catch (err) {
-    return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
+    return {
+      statusCode: 500,
+      headers,
+      body: JSON.stringify({ error: err.message }),
+    };
   }
 };

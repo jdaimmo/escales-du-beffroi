@@ -1214,16 +1214,40 @@ document.getElementById('nextMonth')?.addEventListener('click',()=>{
   render();
 });
 load();
+</script>
 
+<!-- GALERIE MODALE -->
+<div class="gallery" id="gallery" role="dialog" aria-modal="true" aria-label="Galerie photos">
+  <div class="gallery-inner">
+    <button class="gallery-close" id="galleryClose" aria-label="Fermer la galerie">✕</button>
+    <img class="gallery-img" id="galleryImg" src="" alt="">
+  </div>
+  <div class="gallery-nav">
+    <button id="galleryPrev" aria-label="Photo précédente">‹</button>
+    <span class="gallery-counter" id="galleryCounter"></span>
+    <button id="galleryNext" aria-label="Photo suivante">›</button>
+  </div>
+  <div class="gallery-thumbs" id="galleryThumbs"></div>
+</div>
 
+<script>
 // ── GALERIE ──
-const GALLERIES = {"cles": ["photo-cles.jpg", "photo-cle2.jpg", "photo-cle3.jpg", "photo-cle4.jpg"], "refuge": ["photo-refuge.jpg", "photo-refuge1.jpg", "photo-refuge2.jpg", "photo-refuge3.jpg", "photo-refuge4.jpg"], "escapade": ["photo-escapade.jpg", "photo-escapade1.jpg", "photo-escapade2.jpg", "photo-escapade3.jpg", "photo-escapade4.jpg", "photo-escapade5.jpg"], "secret": ["photo-secret.jpg", "photo-secret1.jpg", "photo-secret2.jpg", "photo-secret3.jpg", "photo-secret4.jpg"], "studio": ["photo-studio.jpg", "photo-studio1.jpg", "photo-studio2.jpg", "photo-studio3.jpg", "photo-studio4.jpg"], "patio": ["photo-cles.jpg", "photo-cle2.jpg", "photo-escapade.jpg", "photo-escapade1.jpg"]};
+const GALLERIES = {
+  "cles":     ["photo-cles.jpg","photo-cle2.jpg","photo-cle3.jpg","photo-cle4.jpg"],
+  "refuge":   ["photo-refuge.jpg","photo-refuge1.jpg","photo-refuge2.jpg","photo-refuge3.jpg","photo-refuge4.jpg"],
+  "escapade": ["photo-escapade.jpg","photo-escapade1.jpg","photo-escapade2.jpg","photo-escapade3.jpg","photo-escapade4.jpg","photo-escapade5.jpg"],
+  "secret":   ["photo-secret.jpg","photo-secret1.jpg","photo-secret2.jpg","photo-secret3.jpg","photo-secret4.jpg"],
+  "studio":   ["photo-studio.jpg","photo-studio1.jpg","photo-studio2.jpg","photo-studio3.jpg","photo-studio4.jpg"],
+  "patio":    ["photo-cles.jpg","photo-cle2.jpg","photo-escapade.jpg","photo-escapade1.jpg"]
+};
 
 let currentGallery = [];
 let currentIndex = 0;
 
-function openGallery(id, startIndex = 0) {
+function openGallery(id, startIndex) {
+  startIndex = startIndex || 0;
   currentGallery = GALLERIES[id] || [];
+  if (currentGallery.length === 0) return;
   currentIndex = startIndex;
   document.getElementById('gallery').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1236,62 +1260,53 @@ function closeGallery() {
 }
 
 function renderGallery() {
-  const img = document.getElementById('galleryImg');
-  const counter = document.getElementById('galleryCounter');
-  const thumbsEl = document.getElementById('galleryThumbs');
-  
+  var img = document.getElementById('galleryImg');
+  var counter = document.getElementById('galleryCounter');
+  var thumbsEl = document.getElementById('galleryThumbs');
+  if (!img || !counter || !thumbsEl) return;
+
   img.src = currentGallery[currentIndex];
-  img.alt = 'Photo logement ' + (currentIndex + 1);
+  img.alt = 'Photo ' + (currentIndex + 1);
   counter.textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
-  
+
   thumbsEl.innerHTML = '';
-  currentGallery.forEach((src, i) => {
-    const th = document.createElement('img');
+  currentGallery.forEach(function(src, i) {
+    var th = document.createElement('img');
     th.src = src;
     th.className = 'gallery-thumb' + (i === currentIndex ? ' active' : '');
-    th.alt = 'Miniature ' + (i + 1);
+    th.alt = 'Photo ' + (i + 1);
     th.loading = 'lazy';
-    th.addEventListener('click', () => { currentIndex = i; renderGallery(); });
+    th.onclick = function() { currentIndex = i; renderGallery(); };
     thumbsEl.appendChild(th);
   });
 }
 
-document.getElementById('galleryClose')?.addEventListener('click', closeGallery);
-document.getElementById('galleryPrev')?.addEventListener('click', () => {
+// Bouton fermer
+document.getElementById('galleryClose').onclick = function() { closeGallery(); };
+
+// Navigation
+document.getElementById('galleryPrev').onclick = function() {
   currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
   renderGallery();
-});
-document.getElementById('galleryNext')?.addEventListener('click', () => {
+};
+document.getElementById('galleryNext').onclick = function() {
   currentIndex = (currentIndex + 1) % currentGallery.length;
   renderGallery();
-});
+};
 
-// Fermer avec Escape ou clic en dehors
-document.addEventListener('keydown', (e) => {
+// Clic en dehors = fermer
+document.getElementById('gallery').onclick = function(e) {
+  if (e.target === document.getElementById('gallery')) closeGallery();
+};
+
+// Clavier
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('gallery').classList.contains('open')) return;
   if (e.key === 'Escape') closeGallery();
   if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; renderGallery(); }
   if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % currentGallery.length; renderGallery(); }
 });
-document.getElementById('gallery')?.addEventListener('click', (e) => {
-  if (e.target.id === 'gallery') closeGallery();
-});
-
 </script>
-
-<!-- GALERIE MODALE -->
-<div class="gallery" id="gallery" role="dialog" aria-modal="true">
-  <div class="gallery-inner">
-    <button class="gallery-close" id="galleryClose" aria-label="Fermer">✕</button>
-    <img class="gallery-img" id="galleryImg" src="" alt="">
-  </div>
-  <div class="gallery-nav">
-    <button id="galleryPrev" aria-label="Photo précédente">‹</button>
-    <span class="gallery-counter" id="galleryCounter"></span>
-    <button id="galleryNext" aria-label="Photo suivante">›</button>
-  </div>
-  <div class="gallery-thumbs" id="galleryThumbs"></div>
-</div>
-
 
 </body>
 </html>

@@ -565,6 +565,140 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
 }
 
 
+
+/* ── GALERIE PHOTOS ── */
+.gallery {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(13,27,42,0.96);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gallery.open { display: flex; }
+
+.gallery-inner {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+}
+
+.gallery-img {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.gallery-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  background: none;
+  border: none;
+  color: rgba(250,247,240,0.6);
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+.gallery-close:hover { color: var(--or); }
+
+.gallery-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+.gallery-nav button {
+  background: none;
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--or);
+  width: 40px; height: 40px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.gallery-nav button:hover { background: rgba(201,168,76,0.1); }
+
+.gallery-counter {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: rgba(250,247,240,0.4);
+  min-width: 60px;
+  text-align: center;
+}
+
+.gallery-thumbs {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  width: 90%;
+}
+.gallery-thumb {
+  width: 52px;
+  height: 36px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s;
+  opacity: 0.6;
+}
+.gallery-thumb:hover { opacity: 1; }
+.gallery-thumb.active { border-color: var(--or); opacity: 1; }
+
+/* Bouton ouvrir galerie sur les cartes */
+.gallery-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,247,240,0.55);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 5px 12px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: all 0.2s;
+}
+.gallery-btn:hover { color: var(--or); border-color: rgba(201,168,76,0.3); }
+.gallery-btn::before { content: '⊞'; font-size: 0.9rem; }
+
+/* Miniatures dans la carte (3 vignettes sous la photo principale) */
+.card-thumbs {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 42%;
+  display: flex;
+  z-index: 5;
+  gap: 2px;
+}
+.card-thumb {
+  flex: 1;
+  height: 52px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  opacity: 0.8;
+}
+.card-thumb:hover { opacity: 1; }
+
+@media (max-width: 600px) {
+  .card-thumbs { width: 40%; }
+  .card-thumb { height: 36px; }
+}
+
 </style>
 </head>
 <body>
@@ -651,6 +785,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <p class="card-desc">Appartement lumineux de 42 m² avec accès direct à une terrasse privative. Parking en face. L'escale idéale pour les séjours détente.</p>
           <div class="card-feats"><span class="feat">Terrasse</span><span class="feat">42 m²</span><span class="feat">Netflix</span><span class="feat">Parking face</span></div>
           <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        <button class="gallery-btn" onclick="openGallery('cles')" aria-label="Voir toutes les photos">Voir toutes les photos (4)</button>
         </div>
       </article>
 
@@ -665,6 +800,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <p class="card-desc">Studio moderne et fonctionnel. Machine à laver incluse pour les longs séjours.</p>
           <div class="card-feats"><span class="feat">Machine à laver</span><span class="feat">24 m²</span><span class="feat">WiFi</span></div>
           <a href="https://www.airbnb.fr/rooms/1650849140461779706" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        <button class="gallery-btn" onclick="openGallery('refuge')" aria-label="Voir toutes les photos">Voir toutes les photos (5)</button>
         </div>
       </article>
 
@@ -679,6 +815,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <p class="card-desc">Bureau dédié + baignoire. L'équilibre parfait entre productivité et bien-être.</p>
           <div class="card-feats"><span class="feat">Bureau</span><span class="feat">Baignoire</span><span class="feat">40 m²</span></div>
           <a href="https://www.airbnb.fr/rooms/1651264572441805303" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        <button class="gallery-btn" onclick="openGallery('escapade')" aria-label="Voir toutes les photos">Voir toutes les photos (6)</button>
         </div>
       </article>
 
@@ -693,6 +830,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <p class="card-desc">Studio poétique et apaisant. Un cocon bohémien pour une vraie parenthèse.</p>
           <div class="card-feats"><span class="feat">Lit 160 cm</span><span class="feat">26 m²</span><span class="feat">Déco unique</span></div>
           <a href="https://www.airbnb.fr/rooms/1655069078535717997" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        <button class="gallery-btn" onclick="openGallery('secret')" aria-label="Voir toutes les photos">Voir toutes les photos (5)</button>
         </div>
       </article>
 
@@ -707,6 +845,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <p class="card-desc">Calme et historique. Monuments, Places et Beffroi à quelques pas.</p>
           <div class="card-feats"><span class="feat">23 m²</span><span class="feat">Netflix</span><span class="feat">WiFi</span></div>
           <a href="https://www.airbnb.fr/rooms/1650901324092467298" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        <button class="gallery-btn" onclick="openGallery('studio')" aria-label="Voir toutes les photos">Voir toutes les photos (5)</button>
         </div>
       </article>
 
@@ -721,6 +860,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <p class="card-desc">La combinaison des Clés + Escapade Augustine. Deux appartements séparés réunis autour d'une terrasse privative. 3 lits, 2 cuisines, 82 m². L'escale idéale entre amis ou en famille.</p>
           <div class="card-feats"><span class="feat">2 apparts</span><span class="feat">82 m²</span><span class="feat">3 lits</span><span class="feat">2 cuisines</span><span class="feat">Terrasse</span><span class="feat">6 pers.</span></div>
           <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
+        <button class="gallery-btn" onclick="openGallery('patio')" aria-label="Voir toutes les photos">Voir toutes les photos (4)</button>
         </div>
       </article>
 
@@ -1013,6 +1153,84 @@ document.getElementById('nextMonth')?.addEventListener('click',()=>{
   render();
 });
 load();
+
+
+// ── GALERIE ──
+const GALLERIES = {"cles": ["photo-cles.jpg", "photo-cle2.jpg", "photo-cle3.jpg", "photo-cle4.jpg"], "refuge": ["photo-refuge.jpg", "photo-refuge1.jpg", "photo-refuge2.jpg", "photo-refuge3.jpg", "photo-refuge4.jpg"], "escapade": ["photo-escapade.jpg", "photo-escapade1.jpg", "photo-escapade2.jpg", "photo-escapade3.jpg", "photo-escapade4.jpg", "photo-escapade5.jpg"], "secret": ["photo-secret.jpg", "photo-secret1.jpg", "photo-secret2.jpg", "photo-secret3.jpg", "photo-secret4.jpg"], "studio": ["photo-studio.jpg", "photo-studio1.jpg", "photo-studio2.jpg", "photo-studio3.jpg", "photo-studio4.jpg"], "patio": ["photo-cles.jpg", "photo-cle2.jpg", "photo-escapade.jpg", "photo-escapade1.jpg"]};
+
+let currentGallery = [];
+let currentIndex = 0;
+
+function openGallery(id, startIndex = 0) {
+  currentGallery = GALLERIES[id] || [];
+  currentIndex = startIndex;
+  document.getElementById('gallery').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  renderGallery();
+}
+
+function closeGallery() {
+  document.getElementById('gallery').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function renderGallery() {
+  const img = document.getElementById('galleryImg');
+  const counter = document.getElementById('galleryCounter');
+  const thumbsEl = document.getElementById('galleryThumbs');
+  
+  img.src = currentGallery[currentIndex];
+  img.alt = 'Photo logement ' + (currentIndex + 1);
+  counter.textContent = (currentIndex + 1) + ' / ' + currentGallery.length;
+  
+  thumbsEl.innerHTML = '';
+  currentGallery.forEach((src, i) => {
+    const th = document.createElement('img');
+    th.src = src;
+    th.className = 'gallery-thumb' + (i === currentIndex ? ' active' : '');
+    th.alt = 'Miniature ' + (i + 1);
+    th.loading = 'lazy';
+    th.addEventListener('click', () => { currentIndex = i; renderGallery(); });
+    thumbsEl.appendChild(th);
+  });
+}
+
+document.getElementById('galleryClose')?.addEventListener('click', closeGallery);
+document.getElementById('galleryPrev')?.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+  renderGallery();
+});
+document.getElementById('galleryNext')?.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % currentGallery.length;
+  renderGallery();
+});
+
+// Fermer avec Escape ou clic en dehors
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeGallery();
+  if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; renderGallery(); }
+  if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % currentGallery.length; renderGallery(); }
+});
+document.getElementById('gallery')?.addEventListener('click', (e) => {
+  if (e.target.id === 'gallery') closeGallery();
+});
+
 </script>
+
+<!-- GALERIE MODALE -->
+<div class="gallery" id="gallery" role="dialog" aria-modal="true">
+  <div class="gallery-inner">
+    <button class="gallery-close" id="galleryClose" aria-label="Fermer">✕</button>
+    <img class="gallery-img" id="galleryImg" src="" alt="">
+  </div>
+  <div class="gallery-nav">
+    <button id="galleryPrev" aria-label="Photo précédente">‹</button>
+    <span class="gallery-counter" id="galleryCounter"></span>
+    <button id="galleryNext" aria-label="Photo suivante">›</button>
+  </div>
+  <div class="gallery-thumbs" id="galleryThumbs"></div>
+</div>
+
+
 </body>
 </html>

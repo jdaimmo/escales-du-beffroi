@@ -22,24 +22,46 @@ function fetchUrl(url) {
 
 function parseIcal(icsData) {
   const events = [];
-  const lines = icsData.replace(/\r\n /g, '').split(/\r?\n/);
+
+  // Normaliser les fins de ligne et dérouler les lignes pliées (RFC 5545)
+  const normalized = icsData
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .replace(/\n[ \t]/g, ''); // dérouler les lignes pliées
+
+  const lines = normalized.split('\n');
   let current = null;
+
   for (const line of lines) {
-    if (line === 'BEGIN:VEVENT') {
+    const trimmed = line.trim();
+
+    if (trimmed === 'BEGIN:VEVENT') {
       current = {};
-    } else if (line === 'END:VEVENT' && current) {
-      if (current.start && current.end) events.push(current);
+    } else if (trimmed === 'END:VEVENT' && current) {
+      if (current.start && current.end) {
+        events.push(current);
+      }
       current = null;
     } else if (current) {
-      if (line.startsWith('DTSTART')) {
-        current.start = line.split(/[:;]/)[1]?.substring(0, 8);
-      } else if (line.startsWith('DTEND')) {
-        current.end = line.split(/[:;]/)[1]?.substring(0, 8);
-      } else if (line.startsWith('SUMMARY')) {
-        current.summary = line.split(':').slice(1).join(':');
+      // DTSTART peut avoir plusieurs formats :
+      // DTSTART:20260703
+      // DTSTART;VALUE=DATE:20260703
+      // DTSTART;TZID=Europe/Paris:20260703T000000
+      // DTSTART;VALUE=DATE-TIME:20260703T000000Z
+      if (trimmed.startsWith('DTSTART')) {
+        const val = trimmed.split(':').slice(1).join(':');
+        current.start = val.replace(/T.*$/, '').substring(0, 8);
+      } else if (trimmed.startsWith('DTEND')) {
+        const val = trimmed.split(':').slice(1).join(':');
+        current.end = val.replace(/T.*$/, '').substring(0, 8);
+      } else if (trimmed.startsWith('SUMMARY')) {
+        current.summary = trimmed.split(':').slice(1).join(':');
+      } else if (trimmed.startsWith('UID')) {
+        current.uid = trimmed.split(':').slice(1).join(':');
       }
     }
   }
+
   return events;
 }
 
@@ -50,9 +72,24 @@ exports.handler = async (event) => {
     'Cache-Control': 'public, max-age=300',
   };
 
-  const id = event.queryStringParameters?.id || '';
+  const id = (event.queryStringParameters?.id || '').trim();
 
-  // Retourner tous les logements
+  // Debug : retourner le iCal brut pour inspection
+  if (id === 'debug') {
+    try {
+      const ics = await fetchUrl(LOGEMENTS['refuge']);
+      const lines = ics.replace(/\r\n/g, '\n').split('\n').slice(0, 50);
+      return {
+        statusCode: 200,
+        headers: { ...headers, 'Content-Type': 'text/plain' },
+        body: lines.join('\n'),
+      };
+    } catch (e) {
+      return { statusCode: 500, headers, body: e.message };
+    }
+  }
+
+  // Tous les logements
   if (id === 'all') {
     try {
       const results = {};
@@ -67,42 +104,26 @@ exports.handler = async (event) => {
           }
         })
       );
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify(results),
-      };
+      return { statusCode: 200, headers, body: JSON.stringify(results) };
     } catch (err) {
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({ error: err.message }),
-      };
+      return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
     }
   }
 
-  // Retourner un logement spécifique
+  // Logement spécifique
   if (!LOGEMENTS[id]) {
     return {
       statusCode: 400,
       headers,
-      body: JSON.stringify({ error: `Logement inconnu: ${id}` }),
+      body: JSON.stringify({ error: `Logement inconnu: "${id}"` }),
     };
   }
 
   try {
     const ics = await fetchUrl(LOGEMENTS[id]);
     const events = parseIcal(ics);
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify(events),
-    };
+    return { statusCode: 200, headers, body: JSON.stringify(events) };
   } catch (err) {
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: err.message }),
-    };
+    return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
   }
 };

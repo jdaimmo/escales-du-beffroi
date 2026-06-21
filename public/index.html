@@ -633,7 +633,7 @@ function occ(evs,k){ return evs.some(e=>e.start&&e.end&&k>=e.start&&k<e.end); }
 
 async function load(){
   try{
-    const r=await fetch('/api/ical?id=all'); const all=await r.json();
+    const r=await fetch('/.netlify/functions/ical?id=all'); const all=await r.json();
     const t=new Date();
     for(let off=0;off<6;off++){
       const d=new Date(t.getFullYear(),t.getMonth()+off,1);

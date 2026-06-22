@@ -172,8 +172,8 @@ nav ul a:hover { color: var(--or); }
 .stat-l { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,27,42,0.6); margin-top: 2px; }
 
 /* ── BANNIÈRE — fond blanc ── */
-.banniere { width: 100%; height: 380px; overflow: hidden; position: relative; }
-.banniere img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
+.banniere { width: 100%; height: 420px; overflow: hidden; position: relative; }
+.banniere img { width: 100%; height: 100%; object-fit: cover; object-position: center center; }
 .banniere-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to right, rgba(13,27,42,0.55) 0%, rgba(13,27,42,0.08) 35%, rgba(13,27,42,0.08) 65%, rgba(13,27,42,0.55) 100%);
@@ -311,9 +311,89 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
 .f-socials a:hover { color: var(--or); }
 
 /* ── RESPONSIVE ── */
+/* ── AVIS VOYAGEURS ── */
+.avis-section { background: var(--creme); padding: 80px 24px; text-align: center; }
+.avis-section .s-label { color: var(--or); }
+.avis-section .s-title { color: var(--nuit); }
+.avis-inner { max-width: 1200px; margin: 0 auto; }
+.avis-carousel-wrap { display: flex; align-items: center; gap: 16px; margin-top: 0; }
+.avis-track-outer { flex: 1; overflow: hidden; }
+.avis-track { display: flex; gap: 24px; transition: transform 0.5s ease; }
+.avis-card { background: var(--nuit) !important; border: 1px solid rgba(201,168,76,0.2); padding: 28px 24px; margin: 0; text-align: left; position: relative; flex: 0 0 calc((100% - 48px) / 3); transition: transform 0.2s, box-shadow 0.2s; }
+.avis-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(13,27,42,0.08); }
+.avis-card::before { content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: rgba(201,168,76,0.15); position: absolute; top: 8px; left: 16px; line-height: 1; }
+.avis-stars { color: var(--or); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 14px; }
+.avis-text { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-style: italic; color: rgba(250,247,240,0.85); line-height: 1.7; margin: 0 0 18px; }
+.avis-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; border-top: 1px solid rgba(201,168,76,0.3); background: transparent; }
+.avis-author { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: #FAF7F0 !important; }
+.avis-logement { font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: #C9A84C !important; }
+.avis-arrow { background: none; border: 1px solid rgba(201,168,76,0.4); color: var(--or); font-size: 1.2rem; width: 40px; height: 40px; cursor: pointer; flex-shrink: 0; transition: background 0.2s, border-color 0.2s; display: flex; align-items: center; justify-content: center; }
+.avis-arrow:hover { background: rgba(201,168,76,0.1); border-color: var(--or); }
+.avis-arrow:disabled { opacity: 0.25; cursor: default; }
+.avis-dots { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+.avis-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(201,168,76,0.25); border: none; cursor: pointer; padding: 0; transition: background 0.2s; }
+.avis-dot.active { background: var(--or); }
+@media (max-width: 900px) {
+  .avis-card { flex: 0 0 calc(100% - 0px); }
+  .avis-arrow { width: 32px; height: 32px; font-size: 1rem; }
+}
+
+/* ── FIN AVIS ── */
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 1001;
+}
+.nav-burger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: rgba(250,247,240,0.7);
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MENU MOBILE ── */
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 52px;
+  left: 0;
+  right: 0;
+  background: var(--nuit);
+  border-bottom: 2px solid var(--or);
+  z-index: 999;
+  flex-direction: column;
+  padding: 8px 0 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile-link {
+  padding: 14px 24px;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250,247,240,0.7);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: color 0.2s, background 0.2s;
+}
+.nav-mobile-link:last-child { border-bottom: none; }
+.nav-mobile-link:hover { color: var(--or); background: rgba(201,168,76,0.05); }
+
 @media (max-width: 900px) {
   nav { padding: 12px 16px; }
   nav ul { display: none; }
+  .nav-burger { display: flex; }
   .stats { gap: 18px; padding: 12px 16px; }
   .banniere { height: 220px; }
   .grid { grid-template-columns: 1fr; }
@@ -955,7 +1035,18 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
     <li><a href="#agenda">Agenda</a></li>
     <li><a href="#guide">Guide</a></li>
   </ul>
+  <button class="nav-burger" id="navBurger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navMenu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- MENU MOBILE -->
+<div class="nav-mobile" id="navMenu" aria-hidden="true">
+  <a href="#logements"    class="nav-mobile-link" onclick="closeMobileMenu()">🏠 Nos escales</a>
+  <a href="#disponibilites" class="nav-mobile-link" onclick="closeMobileMenu()">📅 Disponibilités</a>
+  <a href="#arras"        class="nav-mobile-link" onclick="closeMobileMenu()">🗼 Arras</a>
+  <a href="#agenda"       class="nav-mobile-link" onclick="closeMobileMenu()">🎉 Agenda</a>
+  <a href="#guide"        class="nav-mobile-link" onclick="closeMobileMenu()">🗺️ Guide</a>
+</div>
 
 
 <!-- BARRE RACCOURCIS -->
@@ -1137,6 +1228,74 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
   </div>
 </section>
 
+<!-- AVIS VOYAGEURS -->
+<section class="avis-section" id="avis" aria-label="Avis des voyageurs">
+  <div class="avis-inner">
+    <p class="s-label">Avis voyageurs</p>
+    <h2 class="s-title">Ils ont séjourné chez nous</h2>
+
+    <div class="avis-carousel-wrap">
+      <button class="avis-arrow avis-prev" id="avisPrev" aria-label="Avis précédent">&#8592;</button>
+
+      <div class="avis-track-outer">
+        <div class="avis-track" id="avisTrack">
+
+          <blockquote class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+            <p class="avis-text">« Airbnb que je recommande vivement ! Propre, bien situé, hôte très disponible et à l'écoute. Rien à redire, n'hésitez pas à réserver ! »</p>
+            <footer class="avis-footer">
+              <span class="avis-author">Elisa</span>
+              <span class="avis-logement">Les Clés d'Augustine</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+            <p class="avis-text">« J'ai passé un super séjour. Olivier a été très réactif et j'ai pu profiter de la ville d'Arras. Je recommande ! »</p>
+            <footer class="avis-footer">
+              <span class="avis-author">Aurélie</span>
+              <span class="avis-logement">Le Refuge des Places</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+            <p class="avis-text">« Logement idéal pour un petit séjour. »</p>
+            <footer class="avis-footer">
+              <span class="avis-author">Adrien F.</span>
+              <span class="avis-logement">L'Escapade Augustine</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+            <p class="avis-text">« Hôte disponible et très rapide. Appartement impeccable. »</p>
+            <footer class="avis-footer">
+              <span class="avis-author">Zoé</span>
+              <span class="avis-logement">Le Secret d'Augustine</span>
+            </footer>
+          </blockquote>
+
+          <blockquote class="avis-card">
+            <div class="avis-stars" aria-label="5 étoiles">★★★★★</div>
+            <p class="avis-text">« Un logement calme et lumineux, bien situé. J'ajoute aussi la très bonne communication et réactivité de la part de l'hôte. »</p>
+            <footer class="avis-footer">
+              <span class="avis-author">Justine</span>
+              <span class="avis-logement">Le Studio des Arcades</span>
+            </footer>
+          </blockquote>
+
+        </div>
+      </div>
+
+      <button class="avis-arrow avis-next" id="avisNext" aria-label="Avis suivant">&#8594;</button>
+    </div>
+
+    <div class="avis-dots" id="avisDots" aria-label="Navigation avis"></div>
+
+  </div>
+</section>
+
 <!-- DISPONIBILITÉS -->
 <section class="dispo-section" id="disponibilites" aria-label="Calendrier des disponibilités">
   <p class="s-label">Calendrier</p>
@@ -1208,7 +1367,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
       <div class="ev"><div class="ev-date">28 juin</div><div><div class="ev-name">Braderie des commerçants</div><div class="ev-place">Centre-ville · 9h–17h</div></div><div class="ev-tag">🛍️ Shopping</div>
       <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
-      <div class="ev"><div class="ev-date">3–5 juil.</div><div><div class="ev-name">Main Square Festival · 22ème édition</div><div class="ev-place">Citadelle d'Arras</div></div><div class="ev-tag">🎵 Festival</div>
+      <div class="ev"><div class="ev-date">3–5 juil.</div><div><div class="ev-name">Main Square Festival · 22ème édition</div><div class="ev-place">Citadelle d'Arras · Katy Perry, OrelSan…</div></div><div class="ev-tag">🎵 Festival</div>
       <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">8–11 juil.</div><div><div class="ev-name">L'Art Scène Festival</div><div class="ev-place">Chapiteau Bruit de Couloir · Gratuit</div></div><div class="ev-tag">🎪 Culture</div>
@@ -1229,10 +1388,19 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
       <div class="ev"><div class="ev-date">20–23 août</div><div><div class="ev-name">Spectacle Vauban</div><div class="ev-place">Citadelle d'Arras · 8€ à 19€</div></div><div class="ev-tag">🏰 Spectacle</div>
       <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
-      <div class="ev"><div class="ev-date">29–30 août</div><div><div class="ev-name">Fête de l'Andouillette</div><div class="ev-place">Place des Héros</div></div><div class="ev-tag">🍽️ Gastro</div>
+      <div class="ev"><div class="ev-date">29–30 août</div><div><div class="ev-name">Fête de l'Andouillette</div><div class="ev-place">Place des Héros · Spécialité locale incontournable</div></div><div class="ev-tag">🍽️ Gastro</div>
       <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
-      <div class="ev"><div class="ev-date">26 sept.</div><div><div class="ev-name">Championnat du monde de la Frite</div><div class="ev-place">Arras</div></div><div class="ev-tag">🍟 Incontournable</div>
+      <div class="ev"><div class="ev-date">19–20 sept.</div><div><div class="ev-name">Journées du Patrimoine</div><div class="ev-place">Beffroi, Carrière Wellington, monuments… · Gratuit</div></div><div class="ev-tag">🏛️ Patrimoine</div>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
+    </div>
+      <div class="ev"><div class="ev-date">26 sept.</div><div><div class="ev-name">Championnat du Monde de la Frite</div><div class="ev-place">Grand'Place d'Arras · Fête populaire & gastronomique</div></div><div class="ev-tag">🍟 Incontournable</div>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
+    </div>
+      <div class="ev"><div class="ev-date">6–15 nov.</div><div><div class="ev-name">Arras Film Festival</div><div class="ev-place">Cinémas d'Arras · Avant-premières & compétition européenne</div></div><div class="ev-tag">🎬 Cinéma</div>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
+    </div>
+      <div class="ev"><div class="ev-date">27 nov.–30 déc.</div><div><div class="ev-name">Marché de Noël d'Arras · 37ème édition</div><div class="ev-place">Grand'Place & Place des Héros · +140 chalets, grande roue, patinoire</div></div><div class="ev-tag">🎄 Incontournable</div>
       <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
     </div>
@@ -1245,6 +1413,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
     <h2>Location appartement Arras centre — Beffroi & Places baroques</h2>
     <p>Les Escales du Beffroi proposent <strong>6 appartements et studios en location courte durée</strong> au cœur d'Arras (Pas-de-Calais, Hauts-de-France). Tous nos logements sont situés en <strong>hyper-centre d'Arras</strong>, à 3 à 5 minutes à pied du Beffroi classé UNESCO, de la Grand'Place et de la Place des Héros.</p>
     <p>Que vous soyez en <strong>déplacement professionnel à Arras</strong>, en escapade touristique ou en séjour pour le <strong>Main Square Festival</strong>, nos logements s'adaptent à tous les profils : studios design, appartements avec terrasse privative, ou le Patio Augustine pour <strong>6 personnes avec terrasse partagée</strong>.</p>
+    <p>Arras est une ville qui se vit toute l'année. Au printemps et en été : <strong>Main Square Festival</strong> (juillet), Spectacle Vauban, cinéma plein air et feux d'artifice. À l'automne : les <strong>Journées du Patrimoine</strong> (septembre), le <strong>Championnat du Monde de la Frite</strong> (26 septembre) et le célèbre <strong>Arras Film Festival</strong> (6 au 15 novembre). En hiver, la Grand'Place et la Place des Héros se transforment en village féerique pour le <strong>Marché de Noël d'Arras</strong> — l'un des plus grands du Nord de la France avec plus de 140 chalets, une grande roue panoramique et une patinoire, du 27 novembre au 30 décembre.</p>
     <p>Disponibles sur <strong>Airbnb</strong> et <strong>Booking.com</strong>. Réservation directe via chaque fiche. <strong>Linge de maison fourni, WiFi haut débit, Netflix inclus.</strong></p>
     <div class="seo-tags">
       <span class="seo-tag">Location Arras</span>
@@ -1255,6 +1424,10 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
       <span class="seo-tag">Logement Arras Main Square</span>
       <span class="seo-tag">Hébergement Arras Place des Héros</span>
       <span class="seo-tag">Appartement Arras terrasse</span>
+      <span class="seo-tag">Logement Marché de Noël Arras</span>
+      <span class="seo-tag">Hébergement Arras Film Festival</span>
+      <span class="seo-tag">Appartement Arras Championnat Frite</span>
+      <span class="seo-tag">Location Arras Journées Patrimoine</span>
     </div>
   </div>
 </section>
@@ -1780,6 +1953,92 @@ document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') closeGallery();
   if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length; renderGallery(); }
   if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % currentGallery.length; renderGallery(); }
+});
+</script>
+
+<script>
+(function() {
+  const track = document.getElementById('avisTrack');
+  const dotsWrap = document.getElementById('avisDots');
+  const prevBtn = document.getElementById('avisPrev');
+  const nextBtn = document.getElementById('avisNext');
+  if (!track) return;
+  const cards = track.querySelectorAll('.avis-card');
+  const total = cards.length;
+  const visible = window.innerWidth <= 900 ? 1 : 3;
+  const steps = total - visible;
+  let current = 0;
+  let autoTimer;
+
+  function getCardWidth() {
+    return cards[0].offsetWidth + 24;
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i <= steps; i++) {
+      const d = document.createElement('button');
+      d.className = 'avis-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Avis ' + (i + 1));
+      d.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function updateDots() {
+    dotsWrap.querySelectorAll('.avis-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function goTo(index) {
+    current = Math.max(0, Math.min(index, steps));
+    track.style.transform = 'translateX(-' + (current * getCardWidth()) + 'px)';
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === steps;
+    updateDots();
+  }
+
+  function startAuto() {
+    autoTimer = setInterval(() => goTo(current >= steps ? 0 : current + 1), 4000);
+  }
+
+  function resetAuto() {
+    clearInterval(autoTimer);
+    startAuto();
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+  buildDots();
+  goTo(0);
+  startAuto();
+
+  track.addEventListener('mouseenter', () => clearInterval(autoTimer));
+  track.addEventListener('mouseleave', startAuto);
+})();
+</script>
+
+<script>
+const burger = document.getElementById('navBurger');
+const mobileMenu = document.getElementById('navMenu');
+function closeMobileMenu() {
+  burger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+}
+burger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.contains('open');
+  if (isOpen) { closeMobileMenu(); }
+  else {
+    burger.classList.add('open');
+    mobileMenu.classList.add('open');
+    burger.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+  }
+});
+document.addEventListener('click', (e) => {
+  if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
 });
 </script>
 

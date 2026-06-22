@@ -130,6 +130,24 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
   .equip-grid{grid-template-columns:1fr}
   .distances{grid-template-columns:1fr}
 }
+
+/* ── LIGHTBOX ── */
+.gallery-overlay { display: none; position: fixed; inset: 0; background: rgba(13,27,42,0.97); z-index: 2000; align-items: center; justify-content: center; flex-direction: column; }
+.gallery-overlay.open { display: flex; }
+.gallery-inner-lb { position: relative; max-width: 900px; width: 90%; }
+.gallery-img-lb { width: 100%; max-height: 75vh; object-fit: contain; display: block; border: 1px solid rgba(201,168,76,0.2); }
+.gallery-close-lb { position: absolute; top: -44px; right: 0; background: none; border: none; color: rgba(250,247,240,0.6); font-size: 1.6rem; cursor: pointer; transition: color 0.2s; line-height: 1; }
+.gallery-close-lb:hover { color: #C9A84C; }
+.gallery-nav-lb { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 16px; }
+.gallery-nav-lb button { background: none; border: 1px solid rgba(201,168,76,0.3); color: #C9A84C; width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; transition: background 0.2s; }
+.gallery-nav-lb button:hover { background: rgba(201,168,76,0.1); }
+.gallery-counter-lb { font-size: 0.75rem; letter-spacing: 0.14em; color: rgba(250,247,240,0.4); min-width: 60px; text-align: center; }
+.gallery-thumbs-lb { display: flex; gap: 6px; margin-top: 12px; justify-content: center; flex-wrap: wrap; max-width: 900px; width: 90%; }
+.gallery-thumb-lb { width: 52px; height: 36px; object-fit: cover; cursor: pointer; border: 2px solid transparent; transition: border-color 0.2s; opacity: 0.6; }
+.gallery-thumb-lb:hover { opacity: 1; }
+.gallery-thumb-lb.active { border-color: #C9A84C; opacity: 1; }
+.gal-main, .gal-thumb { cursor: pointer; }
+
 </style>
 </head>
 <body>
@@ -299,6 +317,73 @@ burger.addEventListener('click', () => {
 document.addEventListener('click', (e) => {
   if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
 });
+</script>
+
+<!-- GALERIE MODALE -->
+<div class="gallery-overlay" id="galleryOverlay" role="dialog" aria-modal="true" aria-label="Galerie photos">
+  <div class="gallery-inner-lb">
+    <button class="gallery-close-lb" id="galleryClose" aria-label="Fermer">✕</button>
+    <img class="gallery-img-lb" id="galleryImg" src="" alt="">
+  </div>
+  <div class="gallery-nav-lb">
+    <button id="galleryPrev" aria-label="Précédent">‹</button>
+    <span class="gallery-counter-lb" id="galleryCounter"></span>
+    <button id="galleryNext" aria-label="Suivant">›</button>
+  </div>
+  <div class="gallery-thumbs-lb" id="galleryThumbs"></div>
+</div>
+
+<script>
+(function() {
+  var PHOTOS = ["../photo-cles.jpg", "../cle2.jpg", "../photo-escapade.jpg", "../escapade1.jpg"];
+  var current = 0;
+
+  function openAt(i) {
+    current = i;
+    document.getElementById('galleryOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    render();
+  }
+
+  function close() {
+    document.getElementById('galleryOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function render() {
+    var img = document.getElementById('galleryImg');
+    var counter = document.getElementById('galleryCounter');
+    var thumbs = document.getElementById('galleryThumbs');
+    img.src = PHOTOS[current];
+    img.alt = 'Photo ' + (current+1);
+    counter.textContent = (current+1) + ' / ' + PHOTOS.length;
+    thumbs.innerHTML = '';
+    PHOTOS.forEach(function(src, i) {
+      var th = document.createElement('img');
+      th.src = src; th.className = 'gallery-thumb-lb' + (i===current?' active':'');
+      th.alt = 'Photo '+(i+1); th.loading = 'lazy';
+      th.onclick = function() { current=i; render(); };
+      thumbs.appendChild(th);
+    });
+  }
+
+  // Rendre les images cliquables
+  document.querySelectorAll('.gal-main, .gal-thumb').forEach(function(el, i) {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', function() { openAt(i); });
+  });
+
+  document.getElementById('galleryClose').onclick = close;
+  document.getElementById('galleryOverlay').onclick = function(e) { if(e.target===this) close(); };
+  document.getElementById('galleryPrev').onclick = function() { current=(current-1+PHOTOS.length)%PHOTOS.length; render(); };
+  document.getElementById('galleryNext').onclick = function() { current=(current+1)%PHOTOS.length; render(); };
+  document.addEventListener('keydown', function(e) {
+    if (!document.getElementById('galleryOverlay').classList.contains('open')) return;
+    if (e.key==='Escape') close();
+    if (e.key==='ArrowLeft') { current=(current-1+PHOTOS.length)%PHOTOS.length; render(); }
+    if (e.key==='ArrowRight') { current=(current+1)%PHOTOS.length; render(); }
+  });
+})();
 </script>
 </body>
 </html>

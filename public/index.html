@@ -233,6 +233,8 @@ nav ul a:hover { color: var(--or); }
 .card-link { display: inline-flex; align-items: center; gap: 7px; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--or); text-decoration: none; transition: gap 0.2s; }
 .card-link:hover { gap: 12px; }
 .card-link::after { content: '→'; }
+.card-price { font-family: 'Cormorant Garamond', serif; font-size: 0.78rem; color: rgba(201,168,76,0.65); letter-spacing: 0.04em; margin-bottom: 12px; }
+.card-price strong { font-size: 1.05rem; color: var(--or); font-weight: 500; }
 
 /* ── DISPO — fond nuit ── */
 .dispo-section { background: var(--nuit); padding: 80px 24px; text-align: center; }
@@ -1044,6 +1046,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <h3 class="card-name">Les Clés<br>d'Augustine</h3>
           <p class="card-desc">Appartement lumineux de 42 m² avec accès direct à une terrasse privative. Parking en face. L'escale idéale pour les séjours détente.</p>
           <div class="card-feats"><span class="feat">Terrasse</span><span class="feat">42 m²</span><span class="feat">Netflix</span><span class="feat">Parking face</span></div>
+          <p class="card-price">À partir de <strong>90 €</strong> / nuit</p>
           <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
         <button class="gallery-btn" onclick="openGallery('cles')" aria-label="Voir toutes les photos">Voir toutes les photos (4)</button>
         </div>
@@ -1059,6 +1062,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <h3 class="card-name">Le Refuge<br>des Places</h3>
           <p class="card-desc">Studio moderne et fonctionnel. Machine à laver incluse pour les longs séjours.</p>
           <div class="card-feats"><span class="feat">Machine à laver</span><span class="feat">24 m²</span><span class="feat">WiFi</span></div>
+          <p class="card-price">À partir de <strong>70 €</strong> / nuit</p>
           <a href="https://www.airbnb.fr/rooms/1650849140461779706" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
         <button class="gallery-btn" onclick="openGallery('refuge')" aria-label="Voir toutes les photos">Voir toutes les photos (5)</button>
         </div>
@@ -1074,6 +1078,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <h3 class="card-name">L'Escapade<br>Augustine</h3>
           <p class="card-desc">Bureau dédié + baignoire. L'équilibre parfait entre productivité et bien-être.</p>
           <div class="card-feats"><span class="feat">Bureau</span><span class="feat">Baignoire</span><span class="feat">40 m²</span></div>
+          <p class="card-price">À partir de <strong>85 €</strong> / nuit</p>
           <a href="https://www.airbnb.fr/rooms/1651264572441805303" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
         <button class="gallery-btn" onclick="openGallery('escapade')" aria-label="Voir toutes les photos">Voir toutes les photos (6)</button>
         </div>
@@ -1089,6 +1094,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <h3 class="card-name">Le Secret<br>d'Augustine</h3>
           <p class="card-desc">Studio poétique et apaisant. Un cocon bohémien pour une vraie parenthèse.</p>
           <div class="card-feats"><span class="feat">Lit 160 cm</span><span class="feat">26 m²</span><span class="feat">Déco unique</span></div>
+          <p class="card-price">À partir de <strong>75 €</strong> / nuit</p>
           <a href="https://www.airbnb.fr/rooms/1655069078535717997" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
         <button class="gallery-btn" onclick="openGallery('secret')" aria-label="Voir toutes les photos">Voir toutes les photos (5)</button>
         </div>
@@ -1104,6 +1110,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <h3 class="card-name">Le Studio<br>des Arcades</h3>
           <p class="card-desc">Calme et historique. Monuments, Places et Beffroi à quelques pas.</p>
           <div class="card-feats"><span class="feat">23 m²</span><span class="feat">Netflix</span><span class="feat">WiFi</span></div>
+          <p class="card-price">À partir de <strong>70 €</strong> / nuit</p>
           <a href="https://www.airbnb.fr/rooms/1650901324092467298" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
         <button class="gallery-btn" onclick="openGallery('studio')" aria-label="Voir toutes les photos">Voir toutes les photos (5)</button>
         </div>
@@ -1120,6 +1127,7 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
           <h3 class="card-name">Le Patio<br>Augustine</h3>
           <p class="card-desc">La combinaison des Clés + Escapade Augustine. Deux appartements séparés réunis autour d'une terrasse privative. 3 lits, 2 cuisines, 82 m². L'escale idéale entre amis ou en famille.</p>
           <div class="card-feats"><span class="feat">2 apparts</span><span class="feat">82 m²</span><span class="feat">3 lits</span><span class="feat">2 cuisines</span><span class="feat">Terrasse</span><span class="feat">6 pers.</span></div>
+          <p class="card-price">À partir de <strong>160 €</strong> / nuit</p>
           <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="card-link">Voir & réserver</a>
         <button class="gallery-btn" onclick="openGallery('patio')" aria-label="Voir toutes les photos">Voir toutes les photos (4)</button>
         </div>
@@ -1195,37 +1203,37 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
     <h2 class="s-title">L'été à Arras — 2026</h2>
     <div class="events-list">
       <div class="ev"><div class="ev-date">21 juin</div><div><div class="ev-name">Fête de la Musique</div><div class="ev-place">Dans toute la ville · De 11h à 23h · Gratuit</div></div><div class="ev-tag">🎵 Musique</div>
-      <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">28 juin</div><div><div class="ev-name">Braderie des commerçants</div><div class="ev-place">Centre-ville · 9h–17h</div></div><div class="ev-tag">🛍️ Shopping</div>
-      <a href="https://www.airbnb.fr/rooms/1650849140461779706" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">3–5 juil.</div><div><div class="ev-name">Main Square Festival · 22ème édition</div><div class="ev-place">Citadelle d'Arras</div></div><div class="ev-tag">🎵 Festival</div>
-      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">8–11 juil.</div><div><div class="ev-name">L'Art Scène Festival</div><div class="ev-place">Chapiteau Bruit de Couloir · Gratuit</div></div><div class="ev-tag">🎪 Culture</div>
-      <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">10–24 juil.</div><div><div class="ev-name">Pharos Urban Fest</div><div class="ev-place">Centre-ville · Expositions & street shows</div></div><div class="ev-tag">🎨 Urbain</div>
-      <a href="https://www.airbnb.fr/rooms/1650901324092467298" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">14 juil.</div><div><div class="ev-name">Fête Nationale — Feu d'artifice</div><div class="ev-place">Esplanade du Val de Scarpe · 23h</div></div><div class="ev-tag">🎆 Gratuit</div>
-      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">18–25 juil.</div><div><div class="ev-name">Cinéma plein air</div><div class="ev-place">Parcs d'Arras · 22h · Gratuit</div></div><div class="ev-tag">🎬 Cinéma</div>
-      <a href="https://www.airbnb.fr/rooms/1655069078535717997" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">15 août</div><div><div class="ev-name">Fête des Grandes Prairies</div><div class="ev-place">Grandes Prairies · L5 & Colonel Reyel · Feu 23h</div></div><div class="ev-tag">🎆 Gratuit</div>
-      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">20–23 août</div><div><div class="ev-name">Spectacle Vauban</div><div class="ev-place">Citadelle d'Arras · 8€ à 19€</div></div><div class="ev-tag">🏰 Spectacle</div>
-      <a href="https://www.airbnb.fr/rooms/1651264572441805303" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">29–30 août</div><div><div class="ev-name">Fête de l'Andouillette</div><div class="ev-place">Place des Héros</div></div><div class="ev-tag">🍽️ Gastro</div>
-      <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
       <div class="ev"><div class="ev-date">26 sept.</div><div><div class="ev-name">Championnat du monde de la Frite</div><div class="ev-place">Arras</div></div><div class="ev-tag">🍟 Incontournable</div>
-      <a href="https://www.airbnb.fr/rooms/1700009592329866550" target="_blank" rel="noopener" class="ev-reserve">Réserver →</a>
+      <a href="#disponibilites" class="ev-reserve">Voir les dispo →</a>
     </div>
     </div>
   </div>

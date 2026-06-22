@@ -736,6 +736,205 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
 }
 .ev-reserve:hover { background: var(--or-l); }
 
+
+/* ── GUIDE VOYAGEUR ── */
+.guide-wrap {
+  background: var(--blanc);
+  padding: 80px 24px;
+  border-top: 1px solid var(--bordor);
+}
+.guide-inner { max-width: 1100px; margin: 0 auto; }
+
+.guide-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 2px solid var(--gris);
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+.guide-tab {
+  padding: 14px 28px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--pierre);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.guide-tab:hover { color: var(--or); }
+.guide-tab.active { color: var(--or); border-bottom-color: var(--or); }
+
+.guide-panel { display: none; }
+.guide-panel.active { display: block; }
+
+/* Grille activités */
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.guide-card {
+  background: var(--gris);
+  padding: 18px 20px;
+  border-left: 3px solid var(--or);
+  transition: background 0.2s, transform 0.15s;
+}
+.guide-card:hover { background: var(--or-pale, #F5EDD6); transform: translateY(-2px); }
+
+.guide-card-icon { font-size: 1.4rem; margin-bottom: 8px; }
+.guide-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texte);
+  margin-bottom: 4px;
+}
+.guide-card-desc {
+  font-size: 0.68rem;
+  color: var(--pierre);
+  line-height: 1.5;
+}
+
+/* Grille restos */
+.resto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.resto-card {
+  background: var(--gris);
+  padding: 18px 20px;
+  border-left: 3px solid var(--nuit);
+  transition: background 0.2s, transform 0.15s;
+}
+.resto-card:hover { background: #E8ECF2; transform: translateY(-2px); }
+.resto-card-icon { font-size: 1.3rem; margin-bottom: 7px; }
+.resto-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texte);
+  margin-bottom: 3px;
+}
+.resto-card-type {
+  font-size: 0.64rem;
+  color: var(--pierre);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Transport */
+.transport-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.transport-card {
+  background: var(--gris);
+  padding: 22px 24px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  border-left: 3px solid var(--nuit);
+}
+.transport-icon { font-size: 1.8rem; flex-shrink: 0; }
+.transport-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--texte);
+  margin-bottom: 4px;
+}
+.transport-desc { font-size: 0.7rem; color: var(--pierre); line-height: 1.6; }
+.transport-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--or);
+  text-decoration: none;
+}
+.transport-link:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .guide-grid, .resto-grid { grid-template-columns: 1fr 1fr; }
+  .transport-grid { grid-template-columns: 1fr; }
+  .guide-tab { padding: 12px 16px; font-size: 0.65rem; }
+}
+@media (max-width: 480px) {
+  .guide-grid, .resto-grid { grid-template-columns: 1fr; }
+}
+
+
+/* ── BARRE RACCOURCIS ── */
+.quicknav {
+  background: var(--blanc);
+  border-bottom: 1px solid var(--bordor);
+  padding: 0;
+  position: sticky;
+  top: 68px;
+  z-index: 90;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.quicknav::-webkit-scrollbar { display: none; }
+
+.quicknav-inner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 24px;
+  white-space: nowrap;
+}
+
+.quicknav-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 13px 18px;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pierre);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.quicknav-item:hover {
+  color: var(--or);
+  border-bottom-color: var(--or);
+}
+.quicknav-item span { font-size: 1rem; }
+
+.quicknav-sep {
+  width: 1px;
+  height: 16px;
+  background: var(--bordor);
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .quicknav { top: 56px; }
+  .quicknav-item { padding: 11px 12px; font-size: 0.62rem; }
+}
+
 </style>
 </head>
 <body>
@@ -750,8 +949,29 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
     <li><a href="#disponibilites">Disponibilités</a></li>
     <li><a href="#arras">Arras</a></li>
     <li><a href="#agenda">Agenda</a></li>
+    <li><a href="#guide">Guide</a></li>
   </ul>
 </nav>
+
+
+<!-- BARRE RACCOURCIS -->
+<div class="quicknav" role="navigation" aria-label="Navigation rapide">
+  <div class="quicknav-inner">
+    <a href="#logements" class="quicknav-item"><span>🏠</span> Nos escales</a>
+    <div class="quicknav-sep"></div>
+    <a href="#disponibilites" class="quicknav-item"><span>📅</span> Disponibilités</a>
+    <div class="quicknav-sep"></div>
+    <a href="#guide" class="quicknav-item" onclick="showTab('activites')"><span>🗺️</span> Que faire ?</a>
+    <div class="quicknav-sep"></div>
+    <a href="#guide" class="quicknav-item" onclick="showTab('restos')"><span>🍽️</span> Où manger ?</a>
+    <div class="quicknav-sep"></div>
+    <a href="#guide" class="quicknav-item" onclick="showTab('transport')"><span>🚌</span> Se déplacer</a>
+    <div class="quicknav-sep"></div>
+    <a href="#agenda" class="quicknav-item"><span>🎉</span> Agenda</a>
+    <div class="quicknav-sep"></div>
+    <a href="#arras" class="quicknav-item"><span>🗼</span> Arras</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" aria-label="Les Escales du Beffroi — Appartements à Arras">
@@ -1028,6 +1248,251 @@ footer { background: var(--nuit); padding: 52px 48px 28px; display: grid; grid-t
     </div>
   </div>
 </section>
+
+
+<!-- GUIDE VOYAGEUR -->
+<section class="guide-wrap" id="guide" aria-label="Guide du voyageur à Arras">
+  <div class="guide-inner">
+    <p class="s-label">Guide du voyageur</p>
+    <h2 class="s-title">Profitez au maximum de votre séjour</h2>
+
+    <!-- Onglets -->
+    <div class="guide-tabs" role="tablist">
+      <button class="guide-tab active" onclick="showTab('activites')" role="tab" aria-selected="true">🗺️ Que faire ?</button>
+      <button class="guide-tab" onclick="showTab('restos')" role="tab" aria-selected="false">🍽️ Où manger ?</button>
+      <button class="guide-tab" onclick="showTab('transport')" role="tab" aria-selected="false">🚌 Se déplacer</button>
+    </div>
+
+    <!-- Panneau Activités -->
+    <div class="guide-panel active" id="panel-activites">
+      <div class="guide-grid">
+        <div class="guide-card">
+          <div class="guide-card-icon">🏛️</div>
+          <div class="guide-card-title">Les Places d'Arras</div>
+          <div class="guide-card-desc">Grand'Place et Place des Héros — façades baroques flamandes classées UNESCO. À 5 min à pied.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🗼</div>
+          <div class="guide-card-title">Le Beffroi</div>
+          <div class="guide-card-desc">Montez au sommet pour une vue imprenable sur Arras et ses toits. 75 m de hauteur.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">⛪</div>
+          <div class="guide-card-title">Cathédrale Notre-Dame</div>
+          <div class="guide-card-desc">Chef-d'œuvre néo-classique du XVIIIe siècle, reconstruit après la Grande Guerre.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🏰</div>
+          <div class="guide-card-title">Citadelle Vauban</div>
+          <div class="guide-card-desc">Forteresse étoilée classée UNESCO. Parc de loisirs, promenades et concerts en été.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🏛️</div>
+          <div class="guide-card-title">Abbaye Saint-Vaast</div>
+          <div class="guide-card-desc">Magnifique abbaye du XVIIIe siècle abritant le Musée des Beaux-Arts d'Arras.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🎨</div>
+          <div class="guide-card-title">Musée des Beaux-Arts</div>
+          <div class="guide-card-desc">Collection permanente remarquable dans le cadre exceptionnel de l'abbaye Saint-Vaast.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🏨</div>
+          <div class="guide-card-title">Hôtel de Guînes</div>
+          <div class="guide-card-desc">Élégant hôtel particulier du XVIIIe siècle, joyau architectural du centre historique.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🕳️</div>
+          <div class="guide-card-title">Les Boves</div>
+          <div class="guide-card-desc">Réseau de caves médiévales sous Arras. Visite souterraine unique à ne pas manquer.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">⚔️</div>
+          <div class="guide-card-title">Carrière Wellington</div>
+          <div class="guide-card-desc">Tunnels de la Grande Guerre à 20 m sous terre. L'une des visites les plus immersives du Nord.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🍁</div>
+          <div class="guide-card-title">Mémorial canadien de Vimy</div>
+          <div class="guide-card-desc">Monument emblématique de la WW1 à 10 min d'Arras. Site historique incontournable.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">✝️</div>
+          <div class="guide-card-title">Notre-Dame de Lorette</div>
+          <div class="guide-card-desc">Plus grand cimetière militaire français au monde. Mémorial de l'Anneau de la Mémoire.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🛣️</div>
+          <div class="guide-card-title">Circuit du Souvenir</div>
+          <div class="guide-card-desc">Route mémorielle reliant les hauts lieux de la WW1 autour d'Arras.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">⚰️</div>
+          <div class="guide-card-title">Cimetière militaire</div>
+          <div class="guide-card-desc">Cimetière britannique de la Grande Guerre, lieu de recueillement au cœur d'Arras.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🎨</div>
+          <div class="guide-card-title">Louvre-Lens</div>
+          <div class="guide-card-desc">Antenne du Louvre à 30 min — architecture spectaculaire et collections de renommée mondiale.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">⛏️</div>
+          <div class="guide-card-title">Centre Historique Minier de Lewarde</div>
+          <div class="guide-card-desc">Plongez dans l'histoire du bassin minier du Nord-Pas-de-Calais, classé UNESCO.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">⛳</div>
+          <div class="guide-card-title">Golf d'Arras</div>
+          <div class="guide-card-desc">18 trous dans un cadre verdoyant, à quelques minutes du centre-ville.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🌊</div>
+          <div class="guide-card-title">Base Nautique St-Laurent-Blangy</div>
+          <div class="guide-card-desc">Canoë, kayak, paddle et activités nautiques à 5 min d'Arras.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🏊</div>
+          <div class="guide-card-title">Piscine Aquarena</div>
+          <div class="guide-card-desc">Centre aquatique moderne avec toboggans et bassins. Idéal en famille.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🌳</div>
+          <div class="guide-card-title">Parc de la Citadelle</div>
+          <div class="guide-card-desc">Vaste parc de loisirs autour de la Citadelle, parfait pour courir ou pique-niquer.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🌲</div>
+          <div class="guide-card-title">Bois de Marœuil</div>
+          <div class="guide-card-desc">Forêt paisible à deux pas d'Arras, idéale pour une balade nature.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🎮</div>
+          <div class="guide-card-title">Le Chemin de Traverse</div>
+          <div class="guide-card-desc">Escape game à Arras — 7 scénarios immersifs mêlant énigmes, réalité augmentée et aventure en plein air. Pour tous niveaux.</div>
+        </div>
+        <div class="guide-card">
+          <div class="guide-card-icon">🌿</div>
+          <div class="guide-card-title">Cité Nature</div>
+          <div class="guide-card-desc">Parc et espace de découverte nature en plein cœur de l'agglomération arrageoise.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panneau Restaurants -->
+    <div class="guide-panel" id="panel-restos">
+      <div class="resto-grid">
+        <div class="resto-card">
+          <div class="resto-card-icon">🍗</div>
+          <div class="resto-card-title">Silex</div>
+          <div class="resto-card-type">Rôtisserie contemporaine · Grand'Place</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🥩</div>
+          <div class="resto-card-title">Maison Chochois</div>
+          <div class="resto-card-type">Boucherie · Restaurant · Bar · Grand'Place</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🔥</div>
+          <div class="resto-card-title">Ch'ti Charivari</div>
+          <div class="resto-card-type">Restaurant savoyard · Raclette · Fondue</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🥩</div>
+          <div class="resto-card-title">L'Assiette au Bœuf</div>
+          <div class="resto-card-type">Steakhouse</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🥩</div>
+          <div class="resto-card-title">Anagram</div>
+          <div class="resto-card-type">Bar à viandes · Four à braise · Grand'Place</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🍔</div>
+          <div class="resto-card-title">La Base</div>
+          <div class="resto-card-type">Bar-restaurant · Produits locaux · Ambiance conviviale</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🍕</div>
+          <div class="resto-card-title">Pizza de Nico</div>
+          <div class="resto-card-type">Pizzeria artisanale</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🍕</div>
+          <div class="resto-card-title">Venezia</div>
+          <div class="resto-card-type">Pizzeria italienne</div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🍔</div>
+          <div class="resto-card-title">Burger Braisé</div>
+          <div class="resto-card-type">Burger artisanal</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panneau Transport -->
+    <div class="guide-panel" id="panel-transport">
+      <div class="transport-grid">
+        <div class="transport-card">
+          <div class="transport-icon">🚌</div>
+          <div>
+            <div class="transport-title">La Citadine</div>
+            <div class="transport-desc">Navette gratuite reliant les parkings périphériques au centre-ville. Idéal pour éviter de chercher une place. Fonctionne toute l'année.</div>
+          </div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚍</div>
+          <div>
+            <div class="transport-title">Réseau de Bus</div>
+            <div class="transport-desc">Le réseau Artis dessert l'ensemble de l'agglomération arrageoise. Tarifs réduits disponibles. Pratique pour rejoindre Vimy, Lens ou les communes voisines.</div>
+          </div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚲</div>
+          <div>
+            <div class="transport-title">Vélo Électrique</div>
+            <div class="transport-desc">Location de vélos électriques disponible en centre-ville. Idéal pour explorer Arras et ses environs sans effort, tout en profitant des pistes cyclables.</div>
+          </div>
+        </div>
+        <div class="transport-card">
+          <div class="transport-icon">🚗</div>
+          <div>
+            <div class="transport-title">Voiture Citiz</div>
+            <div class="transport-desc">Auto-partage en libre-service disponible à Arras. Réservez à l'heure ou à la journée pour vos escapades vers Vimy, Lens ou Notre-Dame de Lorette.</div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:8px">
+        <a href="https://www.arras.fr/actualite/se-deplacer-moins-cher-a-arras-et-dans-l-arrageois" target="_blank" rel="noopener" class="btn btn-dark">
+          Toutes les infos mobilité sur arras.fr →
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showTab(tab) {
+  // Désactiver tous les onglets et panneaux
+  document.querySelectorAll('.guide-tab').forEach(function(t) {
+    t.classList.remove('active');
+    t.setAttribute('aria-selected', 'false');
+  });
+  document.querySelectorAll('.guide-panel').forEach(function(p) {
+    p.classList.remove('active');
+  });
+  // Activer l'onglet et le panneau sélectionné
+  var tabs = document.querySelectorAll('.guide-tab');
+  var panels = ['activites', 'restos', 'transport'];
+  var idx = panels.indexOf(tab);
+  if (idx >= 0) {
+    tabs[idx].classList.add('active');
+    tabs[idx].setAttribute('aria-selected', 'true');
+  }
+  var panel = document.getElementById('panel-' + tab);
+  if (panel) panel.classList.add('active');
+}
+</script>
 
 <!-- FOOTER -->
 <footer>

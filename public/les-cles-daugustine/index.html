@@ -29,7 +29,6 @@
   "occupancy": {"@type":"QuantitativeValue","maxValue":2},
   "priceRange": "À partir de 90€/nuit",
   "address": {"@type":"PostalAddress","addressLocality":"Arras","postalCode":"62000","addressCountry":"FR"},
-  "containedInPlace": {"@type":"LodgingBusiness","name":"Les Escales du Beffroi","url":"https://lesescalesdubeffroi.fr"},
   "amenityFeature": [{"@type":"LocationFeatureSpecification","name":"Terrasse privée","value":true},{"@type":"LocationFeatureSpecification","name":"42 m²","value":true},{"@type":"LocationFeatureSpecification","name":"2 voyageurs","value":true},{"@type":"LocationFeatureSpecification","name":"Netflix","value":true},{"@type":"LocationFeatureSpecification","name":"Parking face","value":true},{"@type":"LocationFeatureSpecification","name":"WiFi haut débit","value":true},{"@type":"LocationFeatureSpecification","name":"Linge fourni","value":true},{"@type":"LocationFeatureSpecification","name":"Cuisine équipée","value":true}],
   "aggregateRating": {"@type":"AggregateRating","ratingValue":"5","reviewCount":"1","bestRating":"5"},
   "review": [{"@type":"Review","author":{"@type":"Person","name":"Elisa"},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"Airbnb que je recommande vivement ! Propre, bien situé, hôte très disponible et à l'écoute. Rien à redire, n'hésitez pas à réserver !"}]
@@ -130,7 +129,6 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
   .equip-grid{grid-template-columns:1fr}
   .distances{grid-template-columns:1fr}
 }
-
 /* ── LIGHTBOX ── */
 .gallery-overlay { display: none; position: fixed; inset: 0; background: rgba(13,27,42,0.97); z-index: 2000; align-items: center; justify-content: center; flex-direction: column; }
 .gallery-overlay.open { display: flex; }
@@ -147,11 +145,9 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
 .gallery-thumb-lb:hover { opacity: 1; }
 .gallery-thumb-lb.active { border-color: #C9A84C; opacity: 1; }
 .gal-main, .gal-thumb { cursor: pointer; }
-
 </style>
 </head>
 <body>
-
 <nav>
   <a href="../" class="nav-brand">
     <span class="nav-brand-text">Les Escales <span>du Beffroi</span></span>
@@ -174,11 +170,9 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
   <a href="../#agenda" class="nav-mobile-link" onclick="closeMobileMenu()">🎉 Agenda</a>
   <a href="../#guide" class="nav-mobile-link" onclick="closeMobileMenu()">🗺️ Guide</a>
 </div>
-
 <div class="breadcrumb">
   <a href="../">Accueil</a> › <a href="../#logements">Nos escales</a> › Les Clés d'Augustine
 </div>
-
 <section class="loge-hero">
   <div class="loge-hero-bg"></div>
   <div class="loge-hero-overlay"></div>
@@ -189,7 +183,6 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
     <div class="badge-dispo-hero">Consultez les disponibilités</div>
   </div>
 </section>
-
 <div class="layout">
   <main>
     <div class="gallery">
@@ -197,19 +190,14 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
       <div class="gal-thumb"><img src="../cle2.jpg" alt="Les Clés d'Augustine Arras photo 2" loading="lazy"></div>
 <div class="gal-thumb"><img src="../cle3.jpg" alt="Les Clés d'Augustine Arras photo 3" loading="lazy"></div>
 <div class="gal-thumb"><img src="../cle4.jpg" alt="Les Clés d'Augustine Arras photo 4" loading="lazy"></div>
-
     </div>
-
     <span class="s-label">Le logement</span>
     <h2 class="s-title">Appartement lumineux de 42 m² avec accès direct à une terrasse privative. Parking en face. L'escale idéale pour les séjours détente.</h2>
     <p class="desc">Niché en hyper-centre d'Arras, Les Clés d'Augustine est un appartement de 42 m² baigné de lumière naturelle. Son atout maître : une terrasse privative accessible directement depuis le séjour, idéale pour prendre le café au calme ou profiter des soirées d'été. Un parking se trouve face au logement, rare privilège en centre-ville. À 3 minutes à pied du Beffroi et des Places baroques classées UNESCO, c'est l'escale parfaite pour découvrir Arras sans contrainte.</p>
-
     <div class="feats"><span class="feat">Terrasse privée</span><span class="feat">42 m²</span><span class="feat">2 voyageurs</span><span class="feat">Netflix</span><span class="feat">Parking face</span><span class="feat">WiFi haut débit</span><span class="feat">Linge fourni</span><span class="feat">Cuisine équipée</span></div>
-
     <span class="s-label">Équipements</span>
     <h2 class="s-title">Ce qui vous attend</h2>
     <div class="equip-grid"><div class="equip-item"><span class="equip-check">✓</span>Terrasse privative</div><div class="equip-item"><span class="equip-check">✓</span>Parking face</div><div class="equip-item"><span class="equip-check">✓</span>Cuisine équipée</div><div class="equip-item"><span class="equip-check">✓</span>Machine à laver</div><div class="equip-item"><span class="equip-check">✓</span>Matelas premium</div><div class="equip-item"><span class="equip-check">✓</span>Smart TV & Netflix</div><div class="equip-item"><span class="equip-check">✓</span>WiFi haut débit</div><div class="equip-item"><span class="equip-check">✓</span>Linge & serviettes fournis</div></div>
-
     <span class="s-label">Avis voyageurs</span>
     <h2 class="s-title">Ce qu'ils en disent</h2>
     <div class="avis-block">
@@ -217,7 +205,6 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
       <p class="avis-quote">« Airbnb que je recommande vivement ! Propre, bien situé, hôte très disponible et à l'écoute. Rien à redire, n'hésitez pas à réserver ! »</p>
       <div class="avis-who"><span>Elisa</span><span>Mai 2026</span></div>
     </div>
-
     <span class="s-label">Situation</span>
     <h2 class="s-title">À 3–5 min à pied du Beffroi</h2>
     <div class="distances">
@@ -229,7 +216,6 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
       <div class="dist-item"><span class="dist-name">🏰 Citadelle Vauban</span><span class="dist-time">15 min</span></div>
     </div>
   </main>
-
   <aside>
     <div class="sidebar-book">
       <div class="price-block">
@@ -240,7 +226,6 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
       <a href="https://www.airbnb.fr/rooms/1650825603422183509" target="_blank" rel="noopener" class="btn btn-or">Réserver sur Airbnb</a>
       <a href="../#disponibilites" class="btn btn-w">← Voir les disponibilités</a>
     </div>
-
     <p class="other-title">Autres escales disponibles</p>
     
       <a href="../le-refuge-des-places/" class="other-card">
@@ -266,7 +251,6 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
       </a>
   </aside>
 </div>
-
 <footer>
   <div>
     <div class="f-brand">Les Escales <span>du Beffroi</span></div>
@@ -294,7 +278,6 @@ footer{background:var(--nuit);padding:40px 48px 24px;display:grid;grid-template-
   <span>© 2026 Les Escales du Beffroi — Arras, Hauts-de-France</span>
   <a href="../" style="color:rgba(250,247,240,0.3);text-decoration:none">lesescalesdubeffroi.fr</a>
 </div>
-
 <script>
 const burger = document.getElementById('navBurger');
 const mobileMenu = document.getElementById('navMenu');
@@ -318,7 +301,6 @@ document.addEventListener('click', (e) => {
   if (!burger.contains(e.target) && !mobileMenu.contains(e.target)) closeMobileMenu();
 });
 </script>
-
 <!-- GALERIE MODALE -->
 <div class="gallery-overlay" id="galleryOverlay" role="dialog" aria-modal="true" aria-label="Galerie photos">
   <div class="gallery-inner-lb">
@@ -332,24 +314,20 @@ document.addEventListener('click', (e) => {
   </div>
   <div class="gallery-thumbs-lb" id="galleryThumbs"></div>
 </div>
-
 <script>
 (function() {
   var PHOTOS = ["../photo-cles.jpg", "../cle2.jpg", "../cle3.jpg", "../cle4.jpg"];
   var current = 0;
-
   function openAt(i) {
     current = i;
     document.getElementById('galleryOverlay').classList.add('open');
     document.body.style.overflow = 'hidden';
     render();
   }
-
   function close() {
     document.getElementById('galleryOverlay').classList.remove('open');
     document.body.style.overflow = '';
   }
-
   function render() {
     var img = document.getElementById('galleryImg');
     var counter = document.getElementById('galleryCounter');
@@ -366,13 +344,11 @@ document.addEventListener('click', (e) => {
       thumbs.appendChild(th);
     });
   }
-
   // Rendre les images cliquables
   document.querySelectorAll('.gal-main, .gal-thumb').forEach(function(el, i) {
     el.style.cursor = 'pointer';
     el.addEventListener('click', function() { openAt(i); });
   });
-
   document.getElementById('galleryClose').onclick = close;
   document.getElementById('galleryOverlay').onclick = function(e) { if(e.target===this) close(); };
   document.getElementById('galleryPrev').onclick = function() { current=(current-1+PHOTOS.length)%PHOTOS.length; render(); };
